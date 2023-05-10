@@ -17,18 +17,19 @@ export default {
     colors: {
       'primary':'#262626',
       'blue': '#1fb6ff',
-      'purple': '#7e5bef',
+      'white': '#fff',
+      'purple': '#C873FF',
       'pink': '#ff49db',
       'orange': '#ff7849',
       'green': '#13ce66',
       'yellow': '#ffc82c',
       'gray-dark': '#273444',
-      'gray': '#8492a6',
+      'gray': '#A8A8A8',
       'gray-light': '#d3dce6',
     },
     fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
+      sans: ['Montserrat', 'sans-serif'],
+      serif: ['Montserrat', 'serif'],
     },
     extend: {
       spacing: {

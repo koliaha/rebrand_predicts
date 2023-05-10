@@ -1,3 +1,64 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: "Montserrat";
+  src: url("./assets/fonts/Montserrat-Light.woff") format("woff"),
+    url("./assets/fonts/Montserrat-Light.woff") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("./assets/fonts/Montserrat-Regular.woff") format("woff"),
+    url("./assets/fonts/Montserrat-Regular.woff") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("./assets/fonts/Montserrat-Medium.woff") format("woff"),
+    url("./assets/fonts/Montserrat-Medium.woff") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("./assets/fonts/Montserrat-SemiBold.woff") format("woff"),
+    url("./assets/fonts/Montserrat-SemiBold.woff") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("./assets/fonts/Montserrat-Bold.woff") format("woff"),
+    url("./assets/fonts/Montserrat-Bold.woff") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Robtronika";
+  src: url("./assets/fonts/Robtronika-Regular.ttf") format("truetype"),
+    url("./assets/fonts/Robtronika-Regular.woff") format("woff"),
+    url("./assets/fonts/Robtronika-Regular.woff") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+section {
+  background-color: #e4e4e4;
+}
+h2,h1,h3 {
+  font-weight: 600;
+}
+.btn {
+  color: white;
+  font-weight: 600;
+  height: 64px;
+  padding: 20px 40px;
+  text-align: center;
+  background: linear-gradient(270deg, #c873ff -88.02%, #000000 77.73%);
+  border: 1px solid #000000;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 20px;
+}
