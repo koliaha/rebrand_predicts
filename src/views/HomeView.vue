@@ -1,4 +1,10 @@
 <template>
+  <header class="bg-primary h-[700px] ">
+    <div class="container relative h-full">
+    <img src="../assets/img/header.png" alt="" class="absolute bottom-0 max-w-[700px] -right-10">
+asdasd
+    </div>
+  </header>
   <section class="py-10 pt-12">
     <div class="container">
       <div class="text-white grid grid-cols-2 gap-5">
