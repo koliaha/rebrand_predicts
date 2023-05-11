@@ -64,3 +64,7 @@ h2,h1,h3 {
   user-select: none;
   font-size: 20px;
 }
+.btn.btn_light {
+  color: black;
+  background: linear-gradient(270deg, #C873FF -122.45%, #FFFFFF 72.33%);
+}

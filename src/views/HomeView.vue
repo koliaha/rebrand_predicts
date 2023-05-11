@@ -38,20 +38,62 @@
     <div class="container">
       <div class="flex justify-between">
         <div class="max-w-[470px]">
-        <h2 class="text-[40px] leading-[49px] mb-5">
-          Зачем нужна закупка по предиктивным событиям
-        </h2>
-        <p class="mb-10">
-          Инвестиции в привлечение пользователя в большинстве случаев не
-          окупаются быстро
-        </p>
-        <img src="../assets/img/waves.svg" alt="waves" />
+          <h2 class="text-[40px] leading-[49px] mb-5">
+            Зачем нужна закупка по предиктивным событиям
+          </h2>
+          <p class="mb-10">
+            Инвестиции в привлечение пользователя в большинстве случаев не
+            окупаются быстро
+          </p>
+          <img src="../assets/img/waves.svg" alt="waves" />
+        </div>
+        <div class="max-w-[600px]">
+          <img class="w-full" src="../assets/img/content1.svg" alt="content1" />
+        </div>
       </div>
-      <div class="max-w-[600px]">
-        <img class="w-full" src="../assets/img/content1.svg" alt="content1" />
+    </div>
+  </section>
+  <section class="py-24">
+    <div class="container">
+      <div class="flex justify-center items-stretch h-[670px]">
+        <div class="w-1/2 bg-primary text-white p-[100px] relative">
+          <h2 class="text-[40px] leading-[49px] mb-5">
+            Решение: pLTV — это оптимизация на предиктивные события
+          </h2>
+          <p class="mb-10">
+            Рекламодатель сразу видит и оплачивает клиентов с максимальным
+            потенциалом за весь срок их жизни, а не тех, кто просто сделал одну
+            покупку
+          </p>
+          <div
+            class="h-full w-full bg-primary absolute -left-[100%] top-0"
+          ></div>
+          <img
+            class="absolute bottom-0 left-0"
+            src="../assets/img/bg2.svg"
+            alt="waves"
+          />
+        </div>
+        <div class="w-1/2 flex flex-col items-center justify-center">
+          <div class="max-w-[465px]">
+            <h3 class="text-center mb-5">Посмотрим на примере:</h3>
+            <img
+              class="w-full"
+              src="../assets/img/content2.svg"
+              alt="content1"
+            />
+            <img
+              class="w-full mt-4"
+              src="../assets/img/content3.svg"
+              alt="content1"
+            />
+            <p class="mt-10">
+              Мы сознательно платим больше денег за Катю, зная, что ее LTV будет
+              больше и <b>она принесет нам большую прибыль</b>
+            </p>
+          </div>
+        </div>
       </div>
-      </div>
-      
     </div>
   </section>
   <section class="py-24">
@@ -103,6 +145,25 @@
       </div>
     </div>
   </section>
+  <section class="py-24 bg-primary">
+    <div class="container text-white">
+      <h2 class="text-center text-[40px] leading-[49px]">Self-service</h2>
+      <div class="flex justify-center gap-x-3 mt-20">
+        <div class="max-w-[487px]">
+          <img src="../assets/img/self/1.png" alt="" />
+          <div class="h-[146px] flex items-center justify-center">
+            <img src="../assets/img/self/waves.svg" alt="" />
+          </div>
+        </div>
+        <div class="max-w-[487px]">
+          <div class="h-[146px] flex items-center justify-center">
+            <img src="../assets/img/self/waves.svg" alt="" />
+          </div>
+          <img src="../assets/img/self/2.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="py-24">
     <div class="container">
       <h2 class="text-center text-[40px] leading-[49px]">Кейс</h2>
@@ -128,6 +189,31 @@
             <li class="mb-2">Оптимизировать СРА за совершенный заказ</li>
             <li class="mb-2">Увеличить LTV привлекаемых пользователей</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-24 bg-primary">
+    <div class="container text-white">
+      <div class="flex justify-between items-center">
+        <div class="max-w-[387px]">
+          <h2 class="text-[40px] leading-[49px] mb-5">Тарифы</h2>
+          <p class="mb-10">
+            Тариф зависит от количества предиктивных событий и приложений и
+            может меняться в зависимости от целей.
+            <br />
+            <br />
+            Если вам не подходит ни один из представленных тарифов, мы можем
+            рассчитать стоимость индивидуально.
+          </p>
+          <div class="flex">
+            <a href="" class="btn btn_light">Оставить заявку</a>
+          </div>
+        </div>
+        <div class="max-w-[690px] relative">
+          <img class="absolute -top-16 -right-20" src="../assets/img/bg3.svg" alt="content1" />
+          <img class="w-full" src="../assets/img/content4.svg" alt="content1" />
+          <img class="absolute -bottom-16 left-0" src="../assets/img/bg3.svg" alt="content1" />
         </div>
       </div>
     </div>
