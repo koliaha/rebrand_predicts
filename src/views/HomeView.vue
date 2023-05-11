@@ -1,8 +1,20 @@
 <template>
-  <header class="bg-primary h-[700px] ">
-    <div class="container relative h-full">
-    <img src="../assets/img/header.png" alt="" class="absolute bottom-0 max-w-[700px] -right-10">
-asdasd
+  <header class="bg-primary h-[700px]">
+    <div class="container relative h-full flex items-center">
+      <img
+        src="../assets/img/header.png"
+        alt=""
+        class="absolute bottom-0 max-w-[700px] -right-10"
+      />
+      <div class="text-white mb-4">
+        <h1 class="text-[100px] mb-5">Go Predicts</h1>
+        <p class="text-2xl mb-[50px] max-w-[453px]">
+          Это услуга привлечения трафика с оптимизацией на предиктивные события
+        </p>
+        <div class="flex">
+          <a href="" class="btn">Оставить заявку</a>
+        </div>
+      </div>
     </div>
   </header>
   <section class="py-10 pt-12">
@@ -20,6 +32,26 @@ asdasd
           </div>
         </div>
       </div>
+    </div>
+  </section>
+  <section class="py-24">
+    <div class="container">
+      <div class="flex justify-between">
+        <div class="max-w-[470px]">
+        <h2 class="text-[40px] leading-[49px] mb-5">
+          Зачем нужна закупка по предиктивным событиям
+        </h2>
+        <p class="mb-10">
+          Инвестиции в привлечение пользователя в большинстве случаев не
+          окупаются быстро
+        </p>
+        <img src="../assets/img/waves.svg" alt="waves" />
+      </div>
+      <div class="max-w-[600px]">
+        <img class="w-full" src="../assets/img/content1.svg" alt="content1" />
+      </div>
+      </div>
+      
     </div>
   </section>
   <section class="py-24">
@@ -73,27 +105,29 @@ asdasd
   </section>
   <section class="py-24">
     <div class="container">
-      <h2 class="text-center text-[40px] leading-[49px]">
-        Кейс
-      </h2>
+      <h2 class="text-center text-[40px] leading-[49px]">Кейс</h2>
       <div class="grid grid-cols-2 mt-10 border border-black">
-        <div
-          class="bg-primary text-white py-[60px] px-[100px]"
-        >
-            <h2 class="mb-[7px] font-normal text-[28px]">Domino’s Pizza<br/>& Go Predicts</h2>
-            <p class="mt-4 mb-8">Благодаря оптимизации кампании по Smart Events в Google и Facebook* снизили показатели CPO и ДРР. За период с октября 2021 по февраль 2022 увеличили бюджет предиктивных кампаний в 4 раза.</p>
-            <p class="text-[10px]">*соцсеть признана экстремистской в РФ</p>
+        <div class="bg-primary text-white py-[60px] px-[100px]">
+          <h2 class="mb-[7px] font-normal text-[28px]">
+            Domino’s Pizza<br />& Go Predicts
+          </h2>
+          <p class="mt-4 mb-8">
+            Благодаря оптимизации кампании по Smart Events в Google и Facebook*
+            снизили показатели CPO и ДРР. За период с октября 2021 по февраль
+            2022 увеличили бюджет предиктивных кампаний в 4 раза.
+          </p>
+          <p class="text-[10px]">*соцсеть признана экстремистской в РФ</p>
         </div>
-        <div
-          class="bg-white py-[60px] px-[100px]"
-        >
-            <h2 class="mb-[7px] text-[28px]">Задачи</h2>
-            <ul class="list-disc pl-6 mt-3">
-              <li class="mb-2">Привлечь эффективный трафик в приложение клиента</li>
-              <li class="mb-2">Снизить показатель ДРР</li>
-              <li class="mb-2">Оптимизировать СРА за совершенный заказ</li>
-              <li class="mb-2">Увеличить LTV привлекаемых пользователей</li>
-            </ul>
+        <div class="bg-white py-[60px] px-[100px]">
+          <h2 class="mb-[7px] text-[28px]">Задачи</h2>
+          <ul class="list-disc pl-6 mt-3">
+            <li class="mb-2">
+              Привлечь эффективный трафик в приложение клиента
+            </li>
+            <li class="mb-2">Снизить показатель ДРР</li>
+            <li class="mb-2">Оптимизировать СРА за совершенный заказ</li>
+            <li class="mb-2">Увеличить LTV привлекаемых пользователей</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -110,11 +144,12 @@ asdasd
           :key="id"
           class="bg-primary text-white py-7 px-16 max-w-[488px]"
         >
-            <h2 class="mb-[7px] text-center text-[28px]">{{ item.title }}</h2>
-            <ul class="list-disc">
-              <li v-for="(i,index) in item.list" class="mb-2" :key="index">
-              {{ i }}</li>
-            </ul>
+          <h2 class="mb-[7px] text-center text-[28px]">{{ item.title }}</h2>
+          <ul class="list-disc">
+            <li v-for="(i, index) in item.list" class="mb-2" :key="index">
+              {{ i }}
+            </li>
+          </ul>
         </div>
       </div>
     </div>
