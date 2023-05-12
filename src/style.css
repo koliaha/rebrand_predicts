@@ -68,3 +68,6 @@ h2,h1,h3 {
   color: black;
   background: linear-gradient(270deg, #C873FF -122.45%, #FFFFFF 72.33%);
 }
+.bg-gradient{
+  background: linear-gradient(270deg, #C873FF -122.45%, #FFFFFF 72.33%);
+}

@@ -193,6 +193,84 @@
       </div>
     </div>
   </section>
+  <section class="py-24">
+    <div class="container">
+      <h3 class="text-center text-[28px] leading-[34px]">Что делали</h3>
+      <div class="flex justify-between gap-3 flex-wrap mt-10">
+        <div
+          v-for="(item, index) in slide_list"
+          :key="index"
+          class="max-w-[387px] w-full h-[381px] bg-white border border-primary"
+        >
+          <div class="bg-primary h-[205px] flex items-center justify-center">
+            <img
+              class="h-[90%]"
+              :src="imageUrl('slides', item.img, 'png')"
+              alt="slides"
+            />
+          </div>
+          <div class="flex items-start gap-x-4 max-w-[350px] px-5 py-8">
+            <img
+              class="mx-auto w-[55px]"
+              :src="imageUrl('count', item.count)"
+              :alt="item.count"
+            />
+            <div>
+              <p class="">{{ item.text }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="bg-gradient text-center border max-w-[996px] w-full h-[164px] p-5 flex items-center mx-auto mt-10"
+      >
+        <p class="font-semibold max-w-[684px] w-full mx-auto">
+          С октября работа по предиктивной модели стала приносить первые
+          положительные результаты. Мы определили оптимальный Smart Event и
+          начали этап масштабирования эффективного трафика
+        </p>
+      </div>
+      <div class="bg-primary text-white mt-20 py-14 px-24">
+        <h3 class="text-center text-[28px] leading-[34px]">Результаты</h3>
+        <div class="grid grid-cols-4 gap-5 mt-10">
+          <div class="max-w-[200px]">
+            <div class="h-[45px] flex items-center">
+              <svg
+                width="35"
+                height="25"
+                viewBox="0 0 35 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M13.3399 19.2391L2.49099 8.39019L0 10.8812L13.3399 24.2211L35 2.56106L32.509 0.0700684L13.3399 19.2391Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+            <p>Оптимизировали кампании с использованием Smart Event</p>
+          </div>
+          <div class="max-w-[200px]">
+            <h3 class="text-[30px]">-25%</h3>
+            <p>
+              ДРР за период с октября 2021 по февраль 2022 по сравнению с
+              обычными РК
+            </p>
+          </div>
+          <div class="max-w-[200px]">
+            <h3 class="text-[30px]">-23%</h3>
+            <p>показатель СРО</p>
+          </div>
+          <div class="max-w-[200px]">
+            <h3 class="text-[30px]">x4</h3>
+            <p>бюджет предиктивных кампаний с октября по февраль</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="py-24 bg-primary">
     <div class="container text-white">
       <div class="flex justify-between items-center">
@@ -211,9 +289,17 @@
           </div>
         </div>
         <div class="max-w-[690px] relative">
-          <img class="absolute -top-16 -right-20" src="../assets/img/bg3.svg" alt="content1" />
+          <img
+            class="absolute -top-16 -right-20"
+            src="../assets/img/bg3.svg"
+            alt="content1"
+          />
           <img class="w-full" src="../assets/img/content4.svg" alt="content1" />
-          <img class="absolute -bottom-16 left-0" src="../assets/img/bg3.svg" alt="content1" />
+          <img
+            class="absolute -bottom-16 left-0"
+            src="../assets/img/bg3.svg"
+            alt="content1"
+          />
         </div>
       </div>
     </div>
@@ -243,8 +329,8 @@
 </template>
 
 <script setup>
-const imageUrl = (folder, icon) =>
-  new URL(`/src/assets/img/${folder}/${icon}.svg`, import.meta.url).href;
+const imageUrl = (folder, icon, format = "svg") =>
+  new URL(`/src/assets/img/${folder}/${icon}.${format}`, import.meta.url).href;
 const smart_list = [
   {
     title: "Smart Events",
@@ -335,6 +421,44 @@ const predict_list = [
       "Настроенный трекинг события монетизации",
       "Возможность предоставления API-доступа к данным трекинговой системы",
     ],
+  },
+];
+
+const slide_list = [
+  {
+    img: "1",
+    text: "Накопили 30 000 установок, среди них — не менее 40% с конверсией",
+    count: "1",
+  },
+  {
+    img: "2",
+    text: "Составили для клиента рекомендации по непромеченным событиям на карте событий",
+    count: "2",
+  },
+  {
+    img: "3",
+    text: "Сформировали дерево поведения пользователей",
+    count: "3",
+  },
+  {
+    img: "4",
+    text: "Собрали дополнительные сырые данные по Push API и получили ключ отправки s2s-событий",
+    count: "4",
+  },
+  {
+    img: "5",
+    text: "Обучили модель и разбили пользователей на кластеры по LTV",
+    count: "5",
+  },
+  {
+    img: "6",
+    text: "Запустили отправку Smart Events. В июле создали тестовую рекламную кампанию с оптимизацией по предиктивному событию",
+    count: "6",
+  },
+  {
+    img: "7",
+    text: "Обновили настройки и обогатили Smart Event дополнительной информацией",
+    count: "7",
   },
 ];
 </script>
