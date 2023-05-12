@@ -5,8 +5,8 @@
             <img src="../assets/img/logo.svg" alt="">
         </a>
         <div class="flex items-center gap-x-10">
-            <a href="">Smart Events</a>
-            <a href="">Smart Retargeting</a>
+            <router-link to="/">Smart Events</router-link>
+            <router-link to="/smart">Smart Retargeting</router-link>
         </div>
     </div>
     </div>

@@ -53,7 +53,7 @@
       </div>
     </div>
   </section>
-  <section class="py-24">
+  <section class=" border">
     <div class="container">
       <div class="flex justify-center items-stretch h-[670px]">
         <div class="w-1/2 bg-primary text-white p-[100px] relative">
