@@ -47,8 +47,16 @@
 section {
   background-color: #e4e4e4;
 }
-h2,h1,h3 {
+h2,
+h1,
+h3 {
   font-weight: 600;
+}
+a {
+  transition: 0.2s;
+}
+a:hover {
+  opacity: 0.7;
 }
 .btn {
   color: white;
@@ -66,8 +74,12 @@ h2,h1,h3 {
 }
 .btn.btn_light {
   color: black;
-  background: linear-gradient(270deg, #C873FF -122.45%, #FFFFFF 72.33%);
+  background: linear-gradient(270deg, #c873ff -122.45%, #ffffff 72.33%);
 }
-.bg-gradient{
-  background: linear-gradient(270deg, #C873FF -122.45%, #FFFFFF 72.33%);
+.btn:hover {
+  background: #c873ff;
+  color: black;
+}
+.bg-gradient {
+  background: linear-gradient(270deg, #c873ff -122.45%, #ffffff 72.33%);
 }

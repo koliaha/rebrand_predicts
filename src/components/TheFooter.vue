@@ -5,7 +5,7 @@
         <div class="flex justify-center items-center gap-x-5">
           <a
             :href="item.url"
-            class="w-[56px] h-[56px] border border-white rounded-full flex items-center justify-center"
+            class="bg-social w-[56px] h-[56px] border border-white rounded-full flex items-center justify-center"
             v-for="(item, index) in social_list"
             :key="index"
           >
@@ -70,4 +70,11 @@ const social_list = [
   },
 ];
 </script>
-<style lang="scss"></style>
+<style lang="scss">
+.bg-social{
+  transition: 0.4s ;
+  &:hover{
+    background: linear-gradient(270deg, #C873FF -88.02%, #000000 77.73%);
+  }
+}
+</style>

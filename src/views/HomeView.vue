@@ -23,12 +23,14 @@
         <div
           v-for="(item, id) in smart_list"
           :key="id"
-          class="w-full bg-primary py-11 px-16"
+          class="w-full bg-primary py-11 px-16 flex flex-col justify-between"
         >
-          <h2 class="text-[45px]">{{ item.title }}</h2>
-          <p>{{ item.subtitle }}</p>
+          <div>
+            <h2 class="text-[45px]">{{ item.title }}</h2>
+            <p>{{ item.subtitle }}</p>
+          </div>
           <div class="flex mt-7">
-            <a href="" class="btn btn-light">Подробнее</a>
+            <a href="" class="btn" :class="item.theme">Подробнее</a>
           </div>
         </div>
       </div>
@@ -53,7 +55,7 @@
       </div>
     </div>
   </section>
-  <section class=" border">
+  <section class="border">
     <div class="container">
       <div class="flex justify-center items-stretch h-[670px]">
         <div class="w-1/2 bg-primary text-white p-[100px] relative">
@@ -102,11 +104,11 @@
         Технология Go Predicts органично встраивается в любую маркетинговую
         стратегию
       </h2>
-      <div class="grid grid-cols-4 gap-5 mt-10 justify-items-center">
+      <div class="flex justify-center flex-wrap gap-5 mt-10">
         <div
           v-for="(item, id) in tech_list"
           :key="id"
-          class="w-full bg-white border border-black py-3 px-7"
+          class="max-w-[285px] w-full bg-white border border-black py-3 px-7"
         >
           <div class="mx-auto w-[80px] h-[80px] flex items-center">
             <img
@@ -196,11 +198,16 @@
   <section class="py-24">
     <div class="container">
       <h3 class="text-center text-[28px] leading-[34px]">Что делали</h3>
-      <div class="flex justify-between gap-3 flex-wrap mt-10">
-        <div
+
+      <swiper
+        :slides-per-view="3"
+        :space-between="30"
+        class="mt-10"
+      >
+        <swiper-slide
           v-for="(item, index) in slide_list"
           :key="index"
-          class="max-w-[387px] w-full h-[381px] bg-white border border-primary"
+          class="max-w-[387px] select-none w-full min-h-[381px] bg-white border border-primary"
         >
           <div class="bg-primary h-[205px] flex items-center justify-center">
             <img
@@ -209,7 +216,7 @@
               alt="slides"
             />
           </div>
-          <div class="flex items-start gap-x-4 max-w-[350px] px-5 py-8">
+          <div class="flex items-start gap-x-4 max-w-[350px] px-5 py-7">
             <img
               class="mx-auto w-[55px]"
               :src="imageUrl('count', item.count)"
@@ -219,8 +226,8 @@
               <p class="">{{ item.text }}</p>
             </div>
           </div>
-        </div>
-      </div>
+        </swiper-slide>
+      </swiper>
       <div
         class="bg-gradient text-center border max-w-[996px] w-full h-[164px] p-5 flex items-center mx-auto mt-10"
       >
@@ -329,6 +336,8 @@
 </template>
 
 <script setup>
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
 const imageUrl = (folder, icon, format = "svg") =>
   new URL(`/src/assets/img/${folder}/${icon}.${format}`, import.meta.url).href;
 const smart_list = [
@@ -344,7 +353,7 @@ const smart_list = [
     subtitle:
       "Услуга, которая сортирует пользователей на несколько сегментов и оставляет только тех, кто совершит покупку после просмотра ретаргетированной рекламы",
     link: "",
-    theme: "",
+    theme: "btn_light",
   },
 ];
 const tech_list = [
@@ -462,3 +471,8 @@ const slide_list = [
   },
 ];
 </script>
+<style lang="scss">
+  .swiper-wrapper{
+    min-height: 400px ;
+  }
+</style>
