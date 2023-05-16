@@ -1,23 +1,23 @@
 <template>
-  <header class="bg-primary h-[700px]">
-    <div class="container relative h-full flex items-center">
-      <img
-        src="../assets/img/header.png"
-        alt=""
-        class="absolute bottom-0 max-w-[700px] -right-10"
-      />
-      <div class="text-white mb-4">
-        <h1 class="text-[100px] mb-5">Go Predicts</h1>
-        <p class="text-2xl mb-[50px] max-w-[453px]">
+  <header class="bg-primary md:h-[700px] overflow-hidden">
+    <div class="container relative h-full flex items-center justify-center md:justify-start flex-wrap">
+      <div class="text-white mb-4 mt-10 md:mt-0 px-5 md:px-0  text-center md:text-start">
+        <h1 class="text-[68px] lg:text-[100px] mb-5">Go Predicts</h1>
+        <p class="text-lg md:text-2xl mb-[50px] max-w-[453px]">
           Это услуга привлечения трафика с оптимизацией на предиктивные события
         </p>
-        <div class="flex">
+        <div class="flex justify-center md:justify-start">
           <a href="" class="btn">Оставить заявку</a>
         </div>
       </div>
+      <img
+        src="../assets/img/header.png"
+        alt=""
+        class="md:absolute bottom-0 w-full max-w-[500px] xl:max-w-[700px] -right-10"
+      />
     </div>
   </header>
-  <section class="py-10 pt-12">
+  <section class="py-10 pt-12" v-if="false">
     <div class="container">
       <div class="text-white grid grid-cols-2 gap-5">
         <div
@@ -36,7 +36,7 @@
       </div>
     </div>
   </section>
-  <section class="py-24">
+  <section class="py-24" v-if="false">
     <div class="container">
       <div class="flex justify-between">
         <div class="max-w-[470px]">
@@ -55,10 +55,10 @@
       </div>
     </div>
   </section>
-  <section class="border">
+  <section class="border" v-if="false">
     <div class="container">
       <div class="flex justify-center items-stretch h-[670px]">
-        <div class="w-1/2 bg-primary text-white p-[100px] relative">
+        <div class="w-1/2 bg-primary text-white p-[100px] pl-0 relative">
           <h2 class="text-[40px] leading-[49px] mb-5">
             Решение: pLTV — это оптимизация на предиктивные события
           </h2>
@@ -76,7 +76,7 @@
             alt="waves"
           />
         </div>
-        <div class="w-1/2 flex flex-col items-center justify-center">
+        <div class="w-1/2 flex flex-col items-end justify-center">
           <div class="max-w-[465px]">
             <h3 class="text-center mb-5">Посмотрим на примере:</h3>
             <img
@@ -98,7 +98,7 @@
       </div>
     </div>
   </section>
-  <section class="py-24">
+  <section class="py-24" v-if="false">
     <div class="container">
       <h2 class="text-center text-[40px] leading-[49px]">
         Технология Go Predicts органично встраивается в любую маркетинговую
@@ -123,7 +123,7 @@
       </div>
     </div>
   </section>
-  <section class="py-24">
+  <section class="py-24" v-if="false">
     <div class="container">
       <h2 class="text-center text-[40px] leading-[49px]">
         Возможности системы
@@ -147,7 +147,7 @@
       </div>
     </div>
   </section>
-  <section class="py-24 bg-primary">
+  <section class="py-24 bg-primary" v-if="false">
     <div class="container text-white">
       <h2 class="text-center text-[40px] leading-[49px]">Self-service</h2>
       <div class="flex justify-center gap-x-3 mt-20">
@@ -166,7 +166,7 @@
       </div>
     </div>
   </section>
-  <section class="py-24">
+  <section class="py-24" v-if="false">
     <div class="container">
       <h2 class="text-center text-[40px] leading-[49px]">Кейс</h2>
       <div class="grid grid-cols-2 mt-10 border border-black">
@@ -195,43 +195,98 @@
       </div>
     </div>
   </section>
-  <section class="py-24">
+  <section class="py-24" v-if="false">
     <div class="container">
       <h3 class="text-center text-[28px] leading-[34px]">Что делали</h3>
-
-      <swiper
-        :slides-per-view="3"
-        :space-between="30"
-        class="mt-10"
-      >
-        <swiper-slide
-          v-for="(item, index) in slide_list"
-          :key="index"
-          class="max-w-[387px] select-none w-full min-h-[381px] bg-white border border-primary"
+      <div class="swiper-custom relative">
+        <swiper
+          :slides-per-view="3"
+          :space-between="30"
+          loop
+          class="mt-10"
+          :navigation="{
+            prevEl: '.slidePrev-btn',
+            nextEl: '.slideNext-btn',
+          }"
+          :modules="[Navigation]"
         >
-          <div class="bg-primary h-[205px] flex items-center justify-center">
-            <img
-              class="h-[90%]"
-              :src="imageUrl('slides', item.img, 'png')"
-              alt="slides"
-            />
-          </div>
-          <div class="flex items-start gap-x-4 max-w-[350px] px-5 py-7">
-            <img
-              class="mx-auto w-[55px]"
-              :src="imageUrl('count', item.count)"
-              :alt="item.count"
-            />
-            <div>
-              <p class="">{{ item.text }}</p>
+          <swiper-slide
+            v-for="(item, index) in slide_list"
+            :key="index"
+            class="max-w-[387px] select-none w-full min-h-[381px] bg-white border border-primary"
+          >
+            <div class="bg-primary h-[205px] flex items-center justify-center">
+              <img
+                class="h-[90%]"
+                :src="imageUrl('slides', item.img, 'png')"
+                alt="slides"
+              />
             </div>
-          </div>
-        </swiper-slide>
-      </swiper>
+            <div class="flex items-start gap-x-4 max-w-[350px] px-5 py-7">
+              <img
+                class="mx-auto w-[55px]"
+                :src="imageUrl('count', item.count)"
+                :alt="item.count"
+              />
+              <div>
+                <p class="">{{ item.text }}</p>
+              </div>
+            </div>
+          </swiper-slide>
+        </swiper>
+        <div class="slidePrev-btn btnSlide btnSlide-prev">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line
+              y1="-0.5"
+              x2="13.1481"
+              y2="-0.5"
+              transform="matrix(-0.707106 0.707108 0.707106 0.707108 10.2811 1.48373)"
+              stroke="black"
+            />
+            <line
+              y1="-0.5"
+              x2="13.1481"
+              y2="-0.5"
+              transform="matrix(-0.707106 -0.707108 -0.707106 0.707108 9.99988 19.7972)"
+              stroke="black"
+            />
+          </svg>
+        </div>
+        <div class="slideNext-btn btnSlide btnSlide-next">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line
+              y1="-0.5"
+              x2="13.1481"
+              y2="-0.5"
+              transform="matrix(0.707106 0.707108 -0.707106 0.707108 9.71893 1.48373)"
+              stroke="black"
+            />
+            <line
+              y1="-0.5"
+              x2="13.1481"
+              y2="-0.5"
+              transform="matrix(0.707106 -0.707108 0.707106 0.707108 10.0001 19.7972)"
+              stroke="black"
+            />
+          </svg>
+        </div>
+      </div>
       <div
         class="bg-gradient text-center border max-w-[996px] w-full h-[164px] p-5 flex items-center mx-auto mt-10"
       >
-        <p class="font-semibold max-w-[684px] w-full mx-auto">
+        <p class="font-semibold max-w-[684px] w-full mx-auto select-none">
           С октября работа по предиктивной модели стала приносить первые
           положительные результаты. Мы определили оптимальный Smart Event и
           начали этап масштабирования эффективного трафика
@@ -278,7 +333,7 @@
       </div>
     </div>
   </section>
-  <section class="py-24 bg-primary">
+  <section class="py-24 bg-primary" v-if="false">
     <div class="container text-white">
       <div class="flex justify-between items-center">
         <div class="max-w-[387px]">
@@ -311,7 +366,7 @@
       </div>
     </div>
   </section>
-  <section class="py-24">
+  <section class="py-24" v-if="false">
     <div class="container">
       <h2 class="text-center text-[40px] leading-[49px]">
         Go Predicts подходит для любых компаний, которые отвечают следующим
@@ -336,8 +391,11 @@
 </template>
 
 <script setup>
+import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/scrollbar";
 const imageUrl = (folder, icon, format = "svg") =>
   new URL(`/src/assets/img/${folder}/${icon}.${format}`, import.meta.url).href;
 const smart_list = [
@@ -472,7 +530,33 @@ const slide_list = [
 ];
 </script>
 <style lang="scss">
-  .swiper-wrapper{
-    min-height: 400px ;
+.btnSlide {
+  position: absolute;
+  top: 50%;
+  z-index: 100;
+  bottom: 0px;
+  z-index: 100;
+  width: 40px;
+  height: 40px;
+  background: white;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid black;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &::after {
+    font-size: 22px;
   }
+}
+.btnSlide-prev {
+  padding-left: 5px;
+  left: -60px;
+}
+.btnSlide-next {
+  right: -60px;
+  padding-right: 5px;
+}
+
 </style>
