@@ -1,44 +1,41 @@
 <template>
-  <div class="bg-primary text-white py-5 w-full" v-if="false">
+  <div class="bg-primary text-white py-5 w-full">
     <div class="container flex justify-between px-5 md:px-0 relative">
-      <a href="">
+      <router-link to="/">
         <img src="../assets/img/logo.svg" alt="" />
-      </a>
+      </router-link>
       <div class="hidden md:flex items-center gap-x-10">
         <router-link to="/">Smart Events</router-link>
         <router-link to="/smart">Smart Retargeting</router-link>
       </div>
+      <div
+        class="nav-toggle block md:hidden"
+        :class="{ expanded: navOpen }"
+        @click="navOpen = !navOpen"
+      >
+        <div class="nav-toggle-area"></div>
+        <div class="nav-toggle-bar"></div>
+      </div>
     </div>
-    <nav class="nav dropdown-list block md:hidden">
+    <nav class="nav dropdown-list block md:hidden"  :class="{ expanded: navOpen }">
       <div class="nav-wrapper">
-        <div
-          class="nav-toggle"
-          :class="{ expanded: navOpen }"
-          @click="navOpen = !navOpen"
-        >
-          <div class="nav-toggle-area"></div>
-          <div class="nav-toggle-bar"></div>
-        </div>
-        <a href="/test">
-          <h3 class="burger-title">DSP Media Programmatic</h3>
-        </a>
-        <div class="burger-list text-prime mt-20">
-          <a href="#service">Клиентский сервис</a>
-          <a href="#form">Оставить заявку</a>
-        </div>
-        <a href="/test/ssp">
-          <h3 class="burger-title mt-60">SSP</h3>
-        </a>
-        <div class="burger-list text-prime mt-20">
-          <a href="/test/ssp/#advantages">Преимущества</a>
+        <div class="burger-list">
+          <router-link to="/">Smart Events</router-link>
+          <router-link to="/smart">Smart Retargeting</router-link>
         </div>
       </div>
     </nav>
   </div>
 </template>
 <script setup>
-import { ref } from "vue";
+import { ref,watch } from "vue";
+import { useRoute } from "vue-router";
+const route = useRoute();
 const navOpen = ref(false);
+
+watch(() => route.path, () => {
+  navOpen.value = false;
+});
 </script>
 <style>
 .nav {
@@ -46,21 +43,21 @@ const navOpen = ref(false);
   transition: 0.4s ease;
   color: #ffffff;
   cursor: pointer;
-  min-height: 540px;
-  max-height: 100vh;
   /* right: 0;
   top: 0; */
-  right: 5%;
-  top: 5%;
+  right: -100%;
+  top:  -100%;
   position: fixed;
-  max-width: 625px;
-  width: 55%;
+  padding: 20px;
+  width: 250px;
+  min-height: 500px;
   z-index: 100;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding-top: 70px;
-  z-index: 10000;
+  border: 1px solid black;
+  background: #262626;
+  z-index: 1000;
 }
 .nav-wrapper {
   position: relative;
@@ -68,7 +65,7 @@ const navOpen = ref(false);
 .nav.expanded {
   right: 0;
   top: 0;
-  z-index: 10000;
+  z-index: 1000;
 }
 
 .nav-toggle {
@@ -81,11 +78,12 @@ const navOpen = ref(false);
   /* right: 6rem; */
   /* right: -100%; */
   position: fixed;
-  top: 3rem;
+  top: 8px;
+  right: 8px;
   width: 70px;
-  z-index: 102;
+  z-index: 1002;
   background: rgba(0, 0, 0, 0.2);
-  padding: 10px;
+  padding: 30px 10px 10px;
   border-radius: 50%;
   transition: 0.8s;
 }
@@ -114,7 +112,7 @@ const navOpen = ref(false);
   background: white;
   content: "";
   height: 4px;
-  width: 70%;
+  width: 50px;
 }
 
 .nav-toggle .nav-toggle-bar {
@@ -131,13 +129,15 @@ const navOpen = ref(false);
 
 .nav-toggle.expanded .nav-toggle-bar {
   background: transparent;
+  width: 40px;
 }
 
 .nav-toggle.expanded .nav-toggle-bar::after,
 .nav-toggle.expanded .nav-toggle-bar::before {
   background: white;
+  width: 40px;
   margin-top: 0;
-  left: 16%;
+  left: 5px;
 }
 
 .nav-toggle.expanded .nav-toggle-bar::after {
@@ -149,23 +149,16 @@ const navOpen = ref(false);
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
-
-
 .burger-list {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 32px;
   display: flex;
   flex-direction: column;
-  height: 110px;
-  flex-wrap: wrap;
-  justify-content: start;
-  align-items: start;
-  gap: 20px;
-}
-.burger-list a {
-  color: white;
-}
-.burger-title {
-  font-size: 18px;
-  line-height: 22px;
-  color: #fc2e71;
+  height: 100%;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 30px 0;
 }
 </style>

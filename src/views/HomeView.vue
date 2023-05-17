@@ -6,12 +6,12 @@
       <div
         class="text-white mb-4 mt-10 md:mt-0 px-5 md:px-0 text-center md:text-start"
       >
-        <h1 class="text-[68px] lg:text-[100px] mb-5">Go Predicts</h1>
+        <h1 class="text-[48px] md:text-[68px] lg:text-[100px] mb-5">Go Predicts</h1>
         <p class="text-lg md:text-2xl mb-[50px] max-w-[453px]">
           Это услуга привлечения трафика с оптимизацией на предиктивные события
         </p>
         <div class="flex justify-center md:justify-start">
-          <a href="" class="btn">Оставить заявку</a>
+          <button @click="scrollto('form')" class="btn">Оставить заявку</button>
         </div>
       </div>
       <img
@@ -36,13 +36,14 @@
             <p>{{ item.subtitle }}</p>
           </div>
           <div class="flex mt-7">
-            <a href="" class="btn" :class="item.theme">Подробнее</a>
+            <button v-if="item.url" @click="scrollto(item.url)" class="btn">Подробнее</button>
+            <router-link v-if="item.link" :to="item.link" class="btn" :class="item.theme">Подробнее</router-link>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="py-16 lg:py-24">
+  <section class="py-16 lg:py-24" id="events">
     <div class="container">
       <div class="flex justify-between items-center flex-col lg:flex-row">
         <div class="lg:max-w-[470px]">
@@ -76,15 +77,15 @@
       </div>
     </div>
   </section>
-  <section class="lg:border">
+  <section class="lg:border-x-0 lg:border overflow-hidden">
     <div class="container">
       <div
         class="flex justify-center items-center lg:items-stretch flex-col lg:flex-row lg:h-[670px]"
       >
         <div
-          class="w-full lg:w-1/2 bg-primary text-white p-[100px] pl-0 relative"
+          class="w-full lg:w-1/2 bg-primary text-white p-[56px] xl:p-[100px] pl-0 relative"
         >
-          <h2 class="text-[40px] leading-[49px] mb-5">
+          <h2 class="text-[27px] lg:text-[40px] leading-[29px] lg:leading-[49px] mb-5">
             Решение: pLTV — это оптимизация на предиктивные события
           </h2>
           <p class="mb-10">
@@ -93,16 +94,28 @@
             покупку
           </p>
           <div
-            class="h-full w-full bg-primary absolute -left-[100%] top-0 hidden lg:block"
+            class="h-full w-full bg-primary absolute -left-[100%] top-0  lg:block"
+          >
+          
+          </div>
+          <div
+            class="h-full w-full bg-primary absolute -right-[100%] top-0  lg:hidden"
           ></div>
-          <img
-            class="absolute bottom-0 left-0"
+          <div class="absolute w-[720px]  bottom-0 right-0 hidden lg:block">
+            <img
+            class="absolute h-[175px] bottom-0 right-0"
             src="../assets/img/bg2.svg"
+            alt="waves"
+          />
+          </div>
+          <img
+            class="absolute h-full bottom-0 -right-10 hidden md:block lg:hidden"
+            src="../assets/img/bg2mob.svg"
             alt="waves"
           />
         </div>
         <div
-          class="w-full lg:w-1/2 flex flex-col items-center lg:items-end justify-center"
+          class="w-full mt-10 lg:mt-0 lg:w-1/2 flex flex-col items-center lg:items-end justify-center"
         >
           <div class="max-w-[465px]">
             <h3 class="text-center mb-5">Посмотрим на примере:</h3>
@@ -125,15 +138,17 @@
       </div>
     </div>
   </section>
-  <section class="py-16 lg:py-24">
+  <section class="py-16 lg:py-24 overflow-hidden overflow-hidden relative">
     <div class="container">
+      <div class="absolute bg-cover z-0 w-[361px] h-[361px] -right-[20px] top-[80px] bg-[url('./assets/img/circles/1.svg')] hidden md:block"></div>
+      <div class="absolute bg-cover z-0 w-[322px] h-[322px] -left-[100px] bottom-[100px] bg-[url('./assets/img/circles/5.svg')] hidden md:block"></div>
       <h2
-        class="text-center text-[27px] md:text-[40px] leading-[29px] md:leading-[49px]"
+        class="text-center text-[27px] md:text-[40px] leading-[29px] md:leading-[49px] relative"
       >
         Технология Go Predicts органично встраивается в любую маркетинговую
         стратегию
       </h2>
-      <div class="flex justify-center flex-wrap gap-5 mt-10">
+      <div class="hidden md:flex justify-center flex-wrap gap-5 my-10 relative">
         <div
           v-for="(item, id) in tech_list"
           :key="id"
@@ -146,8 +161,88 @@
               :alt="item.icon"
             />
           </div>
-
           <p class="">{{ item.text }}</p>
+        </div>
+      </div>
+      <div class="relative pb-4  block md:hidden">
+        <swiper
+          :slides-per-view="1"
+          :space-between="20"
+          class="mt-10"
+          :centered-slide="true"
+          :navigation="{
+            prevEl: '.slidePrev-btn',
+            nextEl: '.slideNext-btn',
+          }"
+          :breakpoints="{
+            320: {
+              slidesPerView: 1.5,
+            },
+          }"
+          :modules="[Navigation]"
+        >
+          <swiper-slide
+            v-for="(item, index) in tech_list"
+            :key="index"
+            class="w-[285px] min-h-[278px] bg-white border border-black py-3 px-7"
+          >
+            <div class="mx-auto w-[80px] h-[80px] flex items-center">
+              <img
+                class="mx-auto"
+                :src="imageUrl('tech', item.icon)"
+                :alt="item.icon"
+              />
+            </div>
+            <p class="">{{ item.text }}</p>
+          </swiper-slide>
+        </swiper>
+        <div class="slidePrev-btn btnSlide btnSlide-prev">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line
+              y1="-0.5"
+              x2="13.1481"
+              y2="-0.5"
+              transform="matrix(-0.707106 0.707108 0.707106 0.707108 10.2811 1.48373)"
+              stroke="black"
+            />
+            <line
+              y1="-0.5"
+              x2="13.1481"
+              y2="-0.5"
+              transform="matrix(-0.707106 -0.707108 -0.707106 0.707108 9.99988 19.7972)"
+              stroke="black"
+            />
+          </svg>
+        </div>
+        <div class="slideNext-btn btnSlide btnSlide-next">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line
+              y1="-0.5"
+              x2="13.1481"
+              y2="-0.5"
+              transform="matrix(0.707106 0.707108 -0.707106 0.707108 9.71893 1.48373)"
+              stroke="black"
+            />
+            <line
+              y1="-0.5"
+              x2="13.1481"
+              y2="-0.5"
+              transform="matrix(0.707106 -0.707108 0.707106 0.707108 10.0001 19.7972)"
+              stroke="black"
+            />
+          </svg>
         </div>
       </div>
     </div>
@@ -182,12 +277,12 @@
       <div class="flex justify-center flex-col lg:flex-row gap-3 mt-8 lg:mt-20">
         <div class="lg:max-w-[487px]">
           <img src="../assets/img/self/1.png" alt="" />
-          <div class="h-[146px]  items-center justify-center hidden lg:flex">
+          <div class="h-[146px] items-center justify-center hidden lg:flex">
             <img src="../assets/img/self/waves.svg" alt="" />
           </div>
         </div>
         <div class="lg:max-w-[487px]">
-          <div class="h-[146px]  items-center justify-center hidden lg:flex">
+          <div class="h-[146px] items-center justify-center hidden lg:flex">
             <img src="../assets/img/self/waves.svg" alt="" />
           </div>
           <img src="../assets/img/self/2.png" alt="" />
@@ -195,10 +290,12 @@
       </div>
     </div>
   </section>
-  <section class="py-16 lg:py-24">
+  <section class="py-16 lg:py-24 overflow-hidden select-none relative">
     <div class="container">
-      <h2 class="text-center text-[40px] leading-[49px]">Кейс</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 mt-10 border border-black">
+      <div class="absolute bg-cover z-0 lg:w-[346px] w-[246px] lg:h-[346px] h-[246px] -left-[20px] top-[350px] bg-[url('./assets/img/circles/1.svg')] hidden md:block"></div>
+      <div class="mb-20">
+        <h2 class="text-center text-[40px] leading-[49px] relative">Кейс</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 mt-10 border border-black relative">
         <div
           class="bg-primary text-white py-[20px] lg:py-[60px] px-[30px] lg:px-[100px]"
         >
@@ -214,7 +311,7 @@
         </div>
         <div class="bg-white py-[20px] lg:py-[60px] px-[30px] lg:px-[100px]">
           <h2 class="mb-[7px] text-[28px]">Задачи</h2>
-          <ul class="list-disc pl-6 mt-3">
+          <ul class="pl-6 mt-3">
             <li class="mb-2">
               Привлечь эффективный трафик в приложение клиента
             </li>
@@ -224,17 +321,13 @@
           </ul>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="py-16 lg:py-24 overflow-hidden">
-    <div class="container">
+      </div>
+      <div class="absolute bg-cover z-0 w-[458px] h-[458px] -right-[100px] -bottom-[200px] bg-[url('./assets/img/circles/5.svg')] hidden md:block"></div>
       <h3 class="text-center text-[28px] leading-[34px]">Что делали</h3>
       <div class="swiper-custom relative">
         <swiper
           :slides-per-view="3"
-          :space-between="10"
-          loop
-          centered-slides
+          :space-between="15"
           class="mt-10"
           :navigation="{
             prevEl: '.slidePrev-btn',
@@ -243,9 +336,13 @@
           :breakpoints="{
             320: {
               slidesPerView: 1.2,
+              centeredSlides: true,
             },
             800: {
               slidesPerView: 2.5,
+            },
+            1250: {
+              slidesPerView: 3,
             },
           }"
           :modules="[Navigation]"
@@ -262,7 +359,9 @@
                 alt="slides"
               />
             </div>
-            <div class="flex items-start flex-col sm:flex-row gap-x-4 max-w-[350px] px-5 py-7">
+            <div
+              class="flex items-start flex-col sm:flex-row gap-x-4 max-w-[350px] px-5 py-7"
+            >
               <img
                 class="mx-auto w-[35px] sm:w-[55px] mb-2"
                 :src="imageUrl('count', item.count)"
@@ -332,7 +431,7 @@
           начали этап масштабирования эффективного трафика
         </p>
       </div>
-      <div class="bg-primary text-white mt-20 p-7 md:py-14 md:px-24">
+      <div class="bg-primary text-white mt-20 p-7 md:py-14 md:px-24 relative">
         <h3 class="text-center text-[28px] leading-[34px]">Результаты</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
           <div class="md:max-w-[200px]">
@@ -387,7 +486,7 @@
             рассчитать стоимость индивидуально.
           </p>
           <div class="flex">
-            <a href="" class="btn btn_light">Оставить заявку</a>
+            <button class="btn btn_light" @click="scrollto('form')">Оставить заявку</button>
           </div>
         </div>
         <div class="lg:max-w-[690px] w-full relative">
@@ -406,21 +505,25 @@
       </div>
     </div>
   </section>
-  <section class="py-16 lg:py-24">
-    <div class="container">
-      <h2 class="text-center text-[27px] md:text-[40px] leading-[29px] md:leading-[49px]">
+  <section class="py-16 lg:py-24 overflow-hidden relative">
+    <div class="container ">
+      <div class="absolute bg-cover z-0 w-[168px] h-[168px]  right-[60px] bottom-[130px] bg-[url('./assets/img/circles/3.svg')]"></div>
+      <div class="absolute bg-cover z-0 w-[318px] h-[318px] -left-[100px] top-[100px] bg-[url('./assets/img/circles/4.svg')]"></div>
+      <h2
+        class="text-center text-[27px] md:text-[40px] leading-[29px] md:leading-[49px] relative"
+      >
         Go Predicts подходит для любых компаний, которые отвечают следующим
         критериям
       </h2>
-      <div class="flex justify-center flex-wrap gap-5 mt-10">
+      <div class="flex justify-center flex-wrap gap-5 mt-10 relative">
         <div
           v-for="(item, id) in predict_list"
           :key="id"
           class="bg-primary text-white py-7 px-6 md:px-16 w-full maw-w-full lg:max-w-[488px]"
         >
           <h2 class="mb-[7px] text-center text-[28px]">{{ item.title }}</h2>
-          <ul class="list-disc">
-            <li v-for="(i, index) in item.list" class="mb-2" :key="index">
+          <ul class="">
+            <li v-for="(i, index) in item.list" class="dark mb-2" :key="index">
               {{ i }}
             </li>
           </ul>
@@ -443,14 +546,14 @@ const smart_list = [
     title: "Smart Events",
     subtitle:
       "Услуга, которая оптимизирует рекламные кампании по предиктивным событиям",
-    link: "",
+    url: "events",
     theme: "",
   },
   {
     title: "Smart Retargeting",
     subtitle:
       "Услуга, которая сортирует пользователей на несколько сегментов и оставляет только тех, кто совершит покупку после просмотра ретаргетированной рекламы",
-    link: "",
+    link: "/smart",
     theme: "btn_light",
   },
 ];
@@ -568,6 +671,11 @@ const slide_list = [
     count: "7",
   },
 ];
+
+function scrollto(id) {
+      const el = document.getElementById(id);
+      el.scrollIntoView({ behavior: "smooth" });
+    }
 </script>
 <style lang="scss">
 .btnSlide {
@@ -598,7 +706,7 @@ const slide_list = [
   right: -60px;
   padding-right: 5px;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   .btnSlide {
     bottom: -15%;
     top: auto;
@@ -609,7 +717,7 @@ const slide_list = [
   .btnSlide-next {
     right: 35%;
   }
-  .swiper{
+  .swiper {
     overflow: visible !important;
   }
 }

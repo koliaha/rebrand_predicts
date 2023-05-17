@@ -2,18 +2,18 @@
   <header class="bg-primary h-[700px]">
     <div class="container relative h-full flex justify-center items-center">
       <div class="text-white mb-4">
-        <h1 class="text-[100px] mb-5 text-center">Smart<br />Retargeting</h1>
+        <h1 class="text-[50px] sm:text-[75px] lg:text-[100px] mb-5 text-center">Smart<br />Retargeting</h1>
         <div class="flex justify-center mt-20">
-          <a href="" class="btn">Оставить заявку</a>
+          <button class="btn" @click="scrollto('form')">Оставить заявку</button>
         </div>
       </div>
     </div>
   </header>
-  <section class="py-24">
+  <section class="py-16 lg:py-24">
     <div class="container">
-      <div class="flex justify-between">
+      <div class="flex justify-between items-center flex-col lg:flex-row">
         <div class="max-w-[625px]">
-          <h2 class="text-[40px] leading-[49px] mb-5">
+          <h2 class="text-[27px] md:text-[40px] leading-[29px] md:leading-[49px] mb-5">
             Зачем нужен предиктивный ретаргетинг
           </h2>
           <p class="mb-10 max-w-[550px]">
@@ -35,14 +35,14 @@
       </div>
     </div>
   </section>
-  <section class="border">
+  <section class="lg:border-x-0 lg:border overflow-hidden">
     <div class="container">
-      <div class="flex justify-center items-stretch">
+      <div class="flex justify-center items-stretch flex-col lg:flex-row">
         <div
-          class="w-1/2 bg-primary text-white py-[80px] pb-[150px] pr-[70px] relative"
+          class="w-full lg:w-1/2 bg-primary text-white py-[60px] lg:py-[80px] lg:pb-[150px] lg:pr-[70px] relative"
         >
-          <h2 class="text-[40px] leading-[49px] mb-16">Пример</h2>
-          <div class="mb-20">
+          <h2 class="text-[27px] md:text-[40px] leading-[29px] md:leading-[49px] mb-16">Пример</h2>
+          <div class="lg:mb-32">
             <div class="flex items-start gap-x-5">
               <img src="../assets/img/count/smart1.svg" alt="count" />
               <p class="font-semibold">
@@ -56,16 +56,16 @@
                   Go Predicts в реальном времени анализирует поведение
                   пользователя и прогнозирует нужные метрики, как минимум:
                 </p>
-                <ul class="mt-3 list-disc pl-4">
-                  <li>
+                <ul class="mt-3  pl-4">
+                  <li class="dark">
                     Вероятность того, что пользователь больше не вернется в
                     приложение
                   </li>
-                  <li class="my-4">
+                  <li class="dark my-4">
                     Вероятность того, что пользователь сам (органически)
                     совершит нужное действие
                   </li>
-                  <li>
+                  <li class="dark">
                     Вероятность того, что пользователь совершит нужное действие
                     если на него воздействовать ретаргетингом
                   </li>
@@ -83,14 +83,20 @@
           <div
             class="h-full w-full bg-primary absolute -left-[100%] top-0"
           ></div>
-          <img
-            class="absolute bottom-0 left-0"
+          <div class="absolute w-[810px]  bottom-0 right-0 hidden lg:block">
+            <img
+            class="absolute h-[195px] bottom-0 right-0"
             src="../assets/img/bg2.svg"
             alt="waves"
           />
+          </div>
+          
+          <div
+            class="h-full w-full bg-primary absolute -right-[100%] top-0  lg:hidden"
+          ></div>
         </div>
-        <div class="w-1/2 flex flex-col items-end justify-center">
-          <div class="max-w-[465px] flex flex-col gap-4 relative">
+        <div class="w-full lg:pl-20 lg:w-1/2 mt-10 lg:mt-0 flex flex-col items-end justify-center">
+          <div class="max-w-[85%] lg:max-w-[465px] flex flex-col gap-4 relative">
             <img
               class="absolute top-14 -left-10"
               src="../assets/img/icons/arrow.svg"
@@ -134,46 +140,73 @@
       </div>
     </div>
   </section>
-  <section class="py-24">
+  <section class="py-16 lg:py-24 overflow-hidden relative">
     <div class="container">
-      <h2 class="text-center text-[40px] leading-[49px]">
+      <div class="absolute bg-cover z-0 w-[361px] h-[361px] -right-[20px] top-[80px] bg-[url('./assets/img/circles/1.svg')] hidden md:block"></div>
+      <div class="absolute bg-cover z-0 w-[322px] h-[322px] -left-[100px] -bottom-[100px] bg-[url('./assets/img/circles/5.svg')] hidden md:block"></div>
+      <h2 class="text-center text-[27px] md:text-[40px] leading-[29px] md:leading-[49px] relative">
         Использование Smart Retargeting
       </h2>
-      <div class="grid grid-cols-4 gap-5 mt-10">
-        <div
+      <swiper :slides-per-view="4"
+          :space-between="20"
+          :centered-slide="true"
+          :navigation="{
+            prevEl: '.slidePrev-btn',
+            nextEl: '.slideNext-btn',
+          }"
+          :breakpoints="{
+            320: {
+              slidesPerView: 1.5,
+            },
+            720: {
+              slidesPerView: 2.5,
+            },
+            950:{
+              slidesPerView: 4,
+            }
+          }"
+          :modules="[Navigation]"
+          class="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-10 relative">
+        <swiper-slide
           v-for="(item, id) in tech_list"
           :key="id"
-          class="w-full bg-white border"
+          class="w-full bg-white border min-h-[278px]"
         >
-          <div class="bg-primary text-white px-7 py-5">
+          <div class="bg-primary text-white px-3 lg:px-7 py-5">
             <h3>{{ item.title }}</h3>
           </div>
-          <div class="px-9 py-5">
-            <ul class="list-disc" v-for="(it, index) in item.list" :key="index">
+          <div class="px-5 lg:px-9 py-5">
+            <ul class="" v-for="(it, index) in item.list" :key="index">
               <li>{{ it }}</li>
             </ul>
-            <p class="mt-3 text-sm">* {{ item?.subtext }}</p>
+            <p class="mt-3 text-sm" v-if="item?.subtext">* {{ item?.subtext }}</p>
           </div>
-        </div>
-      </div>
+        </swiper-slide>
+      </swiper>
     </div>
   </section>
-  <section class="py-24 bg-primary">
+  <section class="py-16 lg:py-24 bg-primary">
     <div class="container text-white">
-        <h2 class="text-[40px] leading-[49px] mb-5">Тарифы</h2>
+        <h2 class="text-[27px] md:text-[40px] leading-[29px] md:leading-[49px] mb-5">Тарифы</h2>
         <div class="relative mt-16">
           <img
-            class="absolute -top-16 right-0"
+            class="absolute hidden md:block -top-16 right-0"
             src="../assets/img/waves1.svg"
             alt="waves1"
           />
-          <img class="w-full" src="../assets/img/content4.svg" alt="content1" />
+          <img class="w-full hidden md:block" src="../assets/img/content6.svg" alt="content1" />
+          <img class="w-full block md:hidden" src="../assets/img/content6mob.svg" alt="content1" />
         </div>
     </div>
   </section>
 </template>
 
 <script setup>
+import { Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/scrollbar";
 const imageUrl = (folder, icon, format = "svg") =>
   new URL(`/src/assets/img/${folder}/${icon}.${format}`, import.meta.url).href;
 const smart_list = [
@@ -301,4 +334,8 @@ const slide_list = [
     count: "7",
   },
 ];
+function scrollto(id) {
+      const el = document.getElementById(id);
+      el.scrollIntoView({ behavior: "smooth" });
+    }
 </script>

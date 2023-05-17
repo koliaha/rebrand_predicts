@@ -35,10 +35,10 @@
         </div>
         <p class="mt-10">
           Подробнее о других услугах
-          <a target="_blank" href="" class="text-purple">Go Ahead</a>
+          <a target="_blank" href="https://goahead.ai/" class="text-purple">Go Ahead</a>
         </p>
         <p class="mt-10 leading-4">
-          <a href="./policy.pdf" target="_blank" class="text-sm text-gray"
+          <a href="https://gomobile.ru/uploads/origin/files/1/politika_obrabotki_personalnyh_dannyh.pdf" target="_blank" class="text-sm text-gray"
             >Политика обработки персональных данных <br />
             (Политика конфиденциальности)</a
           >
@@ -54,19 +54,19 @@ const imageUrl = (icon) =>
 const social_list = [
   {
     icon: "in",
-    url: "",
+    url: "https://ru.linkedin.com/company/gomobilemarketing?original_referer=",
   },
   {
     icon: "yt",
-    url: "",
+    url: "https://www.youtube.com/channel/UCVC97CDdHPBes4yzmoT9J1g",
   },
   {
     icon: "tg",
-    url: "",
+    url: "https://t.me/goaheadgroup",
   },
   {
     icon: "vk",
-    url: "",
+    url: "https://vk.com/goahead.group",
   },
 ];
 </script>

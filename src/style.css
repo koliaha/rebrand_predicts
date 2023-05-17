@@ -58,6 +58,22 @@ a {
 a:hover {
   opacity: 0.7;
 }
+li{
+  position: relative;
+}
+li::before{
+  position: absolute;
+  content:'';
+  width: 3px;
+  height: 3px;
+  top: 10px;
+  left: -10px;
+  border-radius:50%;
+  background:black;
+}
+li.dark::before{
+  background:white;
+}
 .btn {
   color: white;
   font-weight: 600;
@@ -90,4 +106,24 @@ a:hover {
     padding: 0px 20px;
     font-size: 16px;
   }
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c873ff;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #bc59ff;
 }
