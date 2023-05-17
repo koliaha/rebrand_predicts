@@ -83,3 +83,11 @@ a:hover {
 .bg-gradient {
   background: linear-gradient(270deg, #c873ff -122.45%, #ffffff 72.33%);
 }
+@media screen and (max-width:600px) {
+  .btn {
+    height: 54px;
+    line-height: 54px;
+    padding: 0px 20px;
+    font-size: 16px;
+  }
+}

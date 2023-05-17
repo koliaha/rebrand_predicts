@@ -1,7 +1,11 @@
 <template>
   <header class="bg-primary md:h-[700px] overflow-hidden">
-    <div class="container relative h-full flex items-center justify-center md:justify-start flex-wrap">
-      <div class="text-white mb-4 mt-10 md:mt-0 px-5 md:px-0  text-center md:text-start">
+    <div
+      class="container relative h-full flex items-center justify-center md:justify-start flex-wrap"
+    >
+      <div
+        class="text-white mb-4 mt-10 md:mt-0 px-5 md:px-0 text-center md:text-start"
+      >
         <h1 class="text-[68px] lg:text-[100px] mb-5">Go Predicts</h1>
         <p class="text-lg md:text-2xl mb-[50px] max-w-[453px]">
           Это услуга привлечения трафика с оптимизацией на предиктивные события
@@ -17,16 +21,18 @@
       />
     </div>
   </header>
-  <section class="py-10 pt-12" v-if="false">
+  <section class="py-10 pt-12">
     <div class="container">
-      <div class="text-white grid grid-cols-2 gap-5">
+      <div class="text-white grid grid-cols-1 md:grid-cols-2 gap-5">
         <div
           v-for="(item, id) in smart_list"
           :key="id"
-          class="w-full bg-primary py-11 px-16 flex flex-col justify-between"
+          class="w-full bg-primary py-11 px-8 lg:px-16 flex flex-col justify-between"
         >
           <div>
-            <h2 class="text-[45px]">{{ item.title }}</h2>
+            <h2 class="text-[20px] sm:text-[35px] lg:text-[45px] mb-3">
+              {{ item.title }}
+            </h2>
             <p>{{ item.subtitle }}</p>
           </div>
           <div class="flex mt-7">
@@ -36,29 +42,48 @@
       </div>
     </div>
   </section>
-  <section class="py-24" v-if="false">
+  <section class="py-24">
     <div class="container">
-      <div class="flex justify-between">
-        <div class="max-w-[470px]">
-          <h2 class="text-[40px] leading-[49px] mb-5">
+      <div class="flex justify-between items-center flex-col lg:flex-row">
+        <div class="lg:max-w-[470px]">
+          <h2
+            class="text-[27px] md:text-[40px] leading-[29px] md:leading-[49px] mb-5"
+          >
             Зачем нужна закупка по предиктивным событиям
           </h2>
           <p class="mb-10">
             Инвестиции в привлечение пользователя в большинстве случаев не
             окупаются быстро
           </p>
-          <img src="../assets/img/waves.svg" alt="waves" />
+          <img
+            class="hidden lg:block"
+            src="../assets/img/waves.svg"
+            alt="waves"
+          />
         </div>
-        <div class="max-w-[600px]">
-          <img class="w-full" src="../assets/img/content1.svg" alt="content1" />
+        <div class="max-w-[600px] w-full">
+          <img
+            class="w-full hidden md:block"
+            src="../assets/img/content1.svg"
+            alt="content1"
+          />
+          <img
+            class="w-full block md:hidden"
+            src="../assets/img/content1mob.svg"
+            alt="content1"
+          />
         </div>
       </div>
     </div>
   </section>
-  <section class="border" v-if="false">
+  <section class="lg:border">
     <div class="container">
-      <div class="flex justify-center items-stretch h-[670px]">
-        <div class="w-1/2 bg-primary text-white p-[100px] pl-0 relative">
+      <div
+        class="flex justify-center items-center lg:items-stretch flex-col lg:flex-row lg:h-[670px]"
+      >
+        <div
+          class="w-full lg:w-1/2 bg-primary text-white p-[100px] pl-0 relative"
+        >
           <h2 class="text-[40px] leading-[49px] mb-5">
             Решение: pLTV — это оптимизация на предиктивные события
           </h2>
@@ -68,7 +93,7 @@
             покупку
           </p>
           <div
-            class="h-full w-full bg-primary absolute -left-[100%] top-0"
+            class="h-full w-full bg-primary absolute -left-[100%] top-0 hidden lg:block"
           ></div>
           <img
             class="absolute bottom-0 left-0"
@@ -76,7 +101,9 @@
             alt="waves"
           />
         </div>
-        <div class="w-1/2 flex flex-col items-end justify-center">
+        <div
+          class="w-full lg:w-1/2 flex flex-col items-center lg:items-end justify-center"
+        >
           <div class="max-w-[465px]">
             <h3 class="text-center mb-5">Посмотрим на примере:</h3>
             <img
@@ -98,9 +125,11 @@
       </div>
     </div>
   </section>
-  <section class="py-24" v-if="false">
+  <section class="py-24">
     <div class="container">
-      <h2 class="text-center text-[40px] leading-[49px]">
+      <h2
+        class="text-center text-[27px] md:text-[40px] leading-[29px] md:leading-[49px]"
+      >
         Технология Go Predicts органично встраивается в любую маркетинговую
         стратегию
       </h2>
@@ -123,19 +152,19 @@
       </div>
     </div>
   </section>
-  <section class="py-24" v-if="false">
+  <section class="py-24">
     <div class="container">
       <h2 class="text-center text-[40px] leading-[49px]">
         Возможности системы
       </h2>
-      <div class="grid grid-cols-3 gap-5 mt-10">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-10">
         <div
           v-for="(item, id) in system_list"
           :key="id"
-          class="flex items-start gap-x-4 max-w-[350px]"
+          class="flex items-start gap-x-4 w-full lg:max-w-[350px]"
         >
           <img
-            class="mx-auto w-[55px]"
+            class="w-[55px]"
             :src="imageUrl('count', item.count)"
             :alt="item.count"
           />
@@ -147,7 +176,7 @@
       </div>
     </div>
   </section>
-  <section class="py-24 bg-primary" v-if="false">
+  <section class="py-24 bg-primary">
     <div class="container text-white">
       <h2 class="text-center text-[40px] leading-[49px]">Self-service</h2>
       <div class="flex justify-center gap-x-3 mt-20">
@@ -166,11 +195,13 @@
       </div>
     </div>
   </section>
-  <section class="py-24" v-if="false">
+  <section class="py-24">
     <div class="container">
       <h2 class="text-center text-[40px] leading-[49px]">Кейс</h2>
-      <div class="grid grid-cols-2 mt-10 border border-black">
-        <div class="bg-primary text-white py-[60px] px-[100px]">
+      <div class="grid grid-cols-1 md:grid-cols-2 mt-10 border border-black">
+        <div
+          class="bg-primary text-white py-[20px] lg:py-[60px] px-[30px] lg:px-[100px]"
+        >
           <h2 class="mb-[7px] font-normal text-[28px]">
             Domino’s Pizza<br />& Go Predicts
           </h2>
@@ -181,7 +212,7 @@
           </p>
           <p class="text-[10px]">*соцсеть признана экстремистской в РФ</p>
         </div>
-        <div class="bg-white py-[60px] px-[100px]">
+        <div class="bg-white py-[20px] lg:py-[60px] px-[30px] lg:px-[100px]">
           <h2 class="mb-[7px] text-[28px]">Задачи</h2>
           <ul class="list-disc pl-6 mt-3">
             <li class="mb-2">
@@ -195,7 +226,7 @@
       </div>
     </div>
   </section>
-  <section class="py-24" v-if="false">
+  <section class="py-24 overflow-hidden">
     <div class="container">
       <h3 class="text-center text-[28px] leading-[34px]">Что делали</h3>
       <div class="swiper-custom relative">
@@ -203,10 +234,19 @@
           :slides-per-view="3"
           :space-between="30"
           loop
+          centered-slides
           class="mt-10"
           :navigation="{
             prevEl: '.slidePrev-btn',
             nextEl: '.slideNext-btn',
+          }"
+          :breakpoints="{
+            320: {
+              slidesPerView: 1.5,
+            },
+            800: {
+              slidesPerView: 2.5,
+            },
           }"
           :modules="[Navigation]"
         >
@@ -284,7 +324,7 @@
         </div>
       </div>
       <div
-        class="bg-gradient text-center border max-w-[996px] w-full h-[164px] p-5 flex items-center mx-auto mt-10"
+        class="bg-gradient text-center border max-w-[996px] w-full h-[164px] p-5 flex items-center mx-auto mt-20"
       >
         <p class="font-semibold max-w-[684px] w-full mx-auto select-none">
           С октября работа по предиктивной модели стала приносить первые
@@ -292,10 +332,10 @@
           начали этап масштабирования эффективного трафика
         </p>
       </div>
-      <div class="bg-primary text-white mt-20 py-14 px-24">
+      <div class="bg-primary text-white mt-20 p-7 md:py-14 md:px-24">
         <h3 class="text-center text-[28px] leading-[34px]">Результаты</h3>
-        <div class="grid grid-cols-4 gap-5 mt-10">
-          <div class="max-w-[200px]">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
+          <div class="md:max-w-[200px]">
             <div class="h-[45px] flex items-center">
               <svg
                 width="35"
@@ -314,18 +354,18 @@
             </div>
             <p>Оптимизировали кампании с использованием Smart Event</p>
           </div>
-          <div class="max-w-[200px]">
+          <div class="md:max-w-[200px]">
             <h3 class="text-[30px]">-25%</h3>
             <p>
               ДРР за период с октября 2021 по февраль 2022 по сравнению с
               обычными РК
             </p>
           </div>
-          <div class="max-w-[200px]">
+          <div class="md:max-w-[200px]">
             <h3 class="text-[30px]">-23%</h3>
             <p>показатель СРО</p>
           </div>
-          <div class="max-w-[200px]">
+          <div class="md:max-w-[200px]">
             <h3 class="text-[30px]">x4</h3>
             <p>бюджет предиктивных кампаний с октября по февраль</p>
           </div>
@@ -333,10 +373,10 @@
       </div>
     </div>
   </section>
-  <section class="py-24 bg-primary" v-if="false">
+  <section class="py-16 lg:py-24 bg-primary overflow-hidden">
     <div class="container text-white">
-      <div class="flex justify-between items-center">
-        <div class="max-w-[387px]">
+      <div class="flex justify-between items-center lg:flex-row flex-col">
+        <div class="lg:max-w-[387px] mb-9 lg:mb-0">
           <h2 class="text-[40px] leading-[49px] mb-5">Тарифы</h2>
           <p class="mb-10">
             Тариф зависит от количества предиктивных событий и приложений и
@@ -350,15 +390,15 @@
             <a href="" class="btn btn_light">Оставить заявку</a>
           </div>
         </div>
-        <div class="max-w-[690px] relative">
+        <div class="lg:max-w-[690px] w-full relative">
           <img
-            class="absolute -top-16 -right-20"
+            class="absolute -top-16 -right-20 hidden lg:block"
             src="../assets/img/bg3.svg"
             alt="content1"
           />
           <img class="w-full" src="../assets/img/content4.svg" alt="content1" />
           <img
-            class="absolute -bottom-16 left-0"
+            class="absolute -bottom-16 left-0 hidden lg:block"
             src="../assets/img/bg3.svg"
             alt="content1"
           />
@@ -366,17 +406,17 @@
       </div>
     </div>
   </section>
-  <section class="py-24" v-if="false">
+  <section class="py-16 lg:py-24">
     <div class="container">
-      <h2 class="text-center text-[40px] leading-[49px]">
+      <h2 class="text-center text-[27px] md:text-[40px] leading-[29px] md:leading-[49px]">
         Go Predicts подходит для любых компаний, которые отвечают следующим
         критериям
       </h2>
-      <div class="flex justify-center gap-5 mt-10">
+      <div class="flex justify-center flex-wrap gap-5 mt-10">
         <div
           v-for="(item, id) in predict_list"
           :key="id"
-          class="bg-primary text-white py-7 px-16 max-w-[488px]"
+          class="bg-primary text-white py-7 px-16 w-full maw-w-full lg:max-w-[488px]"
         >
           <h2 class="mb-[7px] text-center text-[28px]">{{ item.title }}</h2>
           <ul class="list-disc">
@@ -558,5 +598,19 @@ const slide_list = [
   right: -60px;
   padding-right: 5px;
 }
-
+@media screen and (max-width: 600px) {
+  .btnSlide {
+    bottom: -15%;
+    top: auto;
+  }
+  .btnSlide-prev {
+    left: 35%;
+  }
+  .btnSlide-next {
+    right: 35%;
+  }
+  .swiper{
+    overflow: visible !important;
+  }
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <section class="py-24">
+  <section class="py-16 lg:py-24">
     <div class="container">
       <h2 class="text-center text-[30px] leading-[39px] md:text-[40px] md:leading-[49px]">
         Оставьте заявку и мы свяжемся с вами
