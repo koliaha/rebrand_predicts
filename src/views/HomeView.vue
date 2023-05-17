@@ -42,7 +42,7 @@
       </div>
     </div>
   </section>
-  <section class="py-24">
+  <section class="py-16 lg:py-24">
     <div class="container">
       <div class="flex justify-between items-center flex-col lg:flex-row">
         <div class="lg:max-w-[470px]">
@@ -125,7 +125,7 @@
       </div>
     </div>
   </section>
-  <section class="py-24">
+  <section class="py-16 lg:py-24">
     <div class="container">
       <h2
         class="text-center text-[27px] md:text-[40px] leading-[29px] md:leading-[49px]"
@@ -152,7 +152,7 @@
       </div>
     </div>
   </section>
-  <section class="py-24">
+  <section class="py-16 lg:py-24">
     <div class="container">
       <h2 class="text-center text-[40px] leading-[49px]">
         Возможности системы
@@ -176,18 +176,18 @@
       </div>
     </div>
   </section>
-  <section class="py-24 bg-primary">
+  <section class="py-16 lg:py-24 bg-primary">
     <div class="container text-white">
       <h2 class="text-center text-[40px] leading-[49px]">Self-service</h2>
-      <div class="flex justify-center gap-x-3 mt-20">
-        <div class="max-w-[487px]">
+      <div class="flex justify-center flex-col lg:flex-row gap-3 mt-8 lg:mt-20">
+        <div class="lg:max-w-[487px]">
           <img src="../assets/img/self/1.png" alt="" />
-          <div class="h-[146px] flex items-center justify-center">
+          <div class="h-[146px]  items-center justify-center hidden lg:flex">
             <img src="../assets/img/self/waves.svg" alt="" />
           </div>
         </div>
-        <div class="max-w-[487px]">
-          <div class="h-[146px] flex items-center justify-center">
+        <div class="lg:max-w-[487px]">
+          <div class="h-[146px]  items-center justify-center hidden lg:flex">
             <img src="../assets/img/self/waves.svg" alt="" />
           </div>
           <img src="../assets/img/self/2.png" alt="" />
@@ -195,7 +195,7 @@
       </div>
     </div>
   </section>
-  <section class="py-24">
+  <section class="py-16 lg:py-24">
     <div class="container">
       <h2 class="text-center text-[40px] leading-[49px]">Кейс</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 mt-10 border border-black">
@@ -226,13 +226,13 @@
       </div>
     </div>
   </section>
-  <section class="py-24 overflow-hidden">
+  <section class="py-16 lg:py-24 overflow-hidden">
     <div class="container">
       <h3 class="text-center text-[28px] leading-[34px]">Что делали</h3>
       <div class="swiper-custom relative">
         <swiper
           :slides-per-view="3"
-          :space-between="30"
+          :space-between="10"
           loop
           centered-slides
           class="mt-10"
@@ -242,7 +242,7 @@
           }"
           :breakpoints="{
             320: {
-              slidesPerView: 1.5,
+              slidesPerView: 1.2,
             },
             800: {
               slidesPerView: 2.5,
@@ -262,9 +262,9 @@
                 alt="slides"
               />
             </div>
-            <div class="flex items-start gap-x-4 max-w-[350px] px-5 py-7">
+            <div class="flex items-start flex-col sm:flex-row gap-x-4 max-w-[350px] px-5 py-7">
               <img
-                class="mx-auto w-[55px]"
+                class="mx-auto w-[35px] sm:w-[55px] mb-2"
                 :src="imageUrl('count', item.count)"
                 :alt="item.count"
               />
@@ -324,7 +324,7 @@
         </div>
       </div>
       <div
-        class="bg-gradient text-center border max-w-[996px] w-full h-[164px] p-5 flex items-center mx-auto mt-20"
+        class="bg-gradient text-center border max-w-[996px] w-full sm:h-[164px] p-5 flex items-center mx-auto mt-20"
       >
         <p class="font-semibold max-w-[684px] w-full mx-auto select-none">
           С октября работа по предиктивной модели стала приносить первые
@@ -416,7 +416,7 @@
         <div
           v-for="(item, id) in predict_list"
           :key="id"
-          class="bg-primary text-white py-7 px-16 w-full maw-w-full lg:max-w-[488px]"
+          class="bg-primary text-white py-7 px-6 md:px-16 w-full maw-w-full lg:max-w-[488px]"
         >
           <h2 class="mb-[7px] text-center text-[28px]">{{ item.title }}</h2>
           <ul class="list-disc">
