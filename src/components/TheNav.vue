@@ -4,12 +4,12 @@
       <router-link to="/">
         <img src="../assets/img/logo.svg" alt="" />
       </router-link>
-      <div class="hidden md:flex items-center gap-x-10">
-        <router-link class="" to="/" exact-active-class="active">Smart Events</router-link>
+      <div class="hidden lg:flex items-center gap-x-10">
+        <router-link class="" to="/#events" exact-active-class="active">Smart Events</router-link>
         <router-link class="" to="/smart" exact-active-class="active">Smart Retargeting</router-link>
       </div>
       <div
-        class="nav-toggle block md:hidden"
+        class="nav-toggle block lg:hidden"
         :class="{ expanded: navOpen }"
         @click="navOpen = !navOpen"
       >
@@ -17,11 +17,11 @@
         <div class="nav-toggle-bar"></div>
       </div>
     </div>
-    <nav class="nav dropdown-list block md:hidden"  :class="{ expanded: navOpen }">
+    <nav class="nav dropdown-list block lg:hidden"  :class="{ expanded: navOpen }">
       <div class="nav-wrapper">
         <div class="burger-list">
-          <router-link to="/">Smart Events</router-link>
-          <router-link to="/smart">Smart Retargeting</router-link>
+          <router-link class="" to="/#events" exact-active-class="active">Smart Events</router-link>
+        <router-link class="" to="/smart" exact-active-class="active">Smart Retargeting</router-link>
         </div>
       </div>
     </nav>
@@ -36,6 +36,10 @@ const navOpen = ref(false);
 watch(() => route.path, () => {
   navOpen.value = false;
 });
+function scrollto(id) {
+      const el = document.getElementById(id);
+      el.scrollIntoView({ behavior: "smooth" });
+    }
 </script>
 <style>
 .router-link-active{

@@ -36,8 +36,8 @@
             <p>{{ item.subtitle }}</p>
           </div>
           <div class="flex mt-7">
-            <button v-if="item.url" @click="scrollto(item.url)" class="btn">Подробнее</button>
-            <router-link v-if="item.link" :to="item.link" class="btn" :class="item.theme">Подробнее</router-link>
+            <button v-if="item.url" @click="scrollto(item.url)" class="btn" :class="item.theme">Подробнее</button>
+            <router-link v-if="item.link"  :to="item.link" class="btn" :class="item.theme">Подробнее</router-link>
           </div>
         </div>
       </div>
@@ -148,7 +148,7 @@
         Технология Go Predicts органично встраивается в любую маркетинговую
         стратегию
       </h2>
-      <div class="hidden md:flex justify-center flex-wrap gap-5 my-10 relative">
+      <div class="hidden lg:flex justify-center flex-wrap gap-5 my-10 relative">
         <div
           v-for="(item, id) in tech_list"
           :key="id"
@@ -164,7 +164,7 @@
           <p class="">{{ item.text }}</p>
         </div>
       </div>
-      <div class="relative pb-4  block md:hidden">
+      <div class="relative pb-4  block lg:hidden">
         <swiper
           :slides-per-view="1"
           :space-between="20"
@@ -177,6 +177,9 @@
           :breakpoints="{
             320: {
               slidesPerView: 1.5,
+            },
+            752: {
+              slidesPerView: 2.5,
             },
           }"
           :modules="[Navigation]"
@@ -327,7 +330,7 @@
       <div class="swiper-custom relative">
         <swiper
           :slides-per-view="3"
-          :space-between="15"
+          :space-between="20"
           class="mt-10"
           :navigation="{
             prevEl: '.slidePrev-btn',
@@ -350,7 +353,7 @@
           <swiper-slide
             v-for="(item, index) in slide_list"
             :key="index"
-            class="max-w-[387px] select-none w-full min-h-[381px] bg-white border border-primary"
+            class=" select-none w-[387px] min-h-[381px] bg-white border border-primary"
           >
             <div class="bg-primary h-[205px] flex items-center justify-center">
               <img
@@ -363,7 +366,7 @@
               class="flex items-start flex-col sm:flex-row gap-x-4 max-w-[350px] px-5 py-7"
             >
               <img
-                class="mx-auto w-[35px] sm:w-[55px] mb-2"
+                class="w-[35px] sm:w-[55px] mb-2"
                 :src="imageUrl('count', item.count)"
                 :alt="item.count"
               />
@@ -495,7 +498,8 @@
             src="../assets/img/bg3.svg"
             alt="content1"
           />
-          <img class="w-full" src="../assets/img/content4.svg" alt="content1" />
+          <img class="w-full hidden md:block" src="../assets/img/content4.svg" alt="content1" />
+          <img class="w-full block md:hidden" src="../assets/img/content4mob.svg" alt="content1" />
           <img
             class="absolute -bottom-16 left-0 hidden lg:block"
             src="../assets/img/bg3.svg"
@@ -546,15 +550,15 @@ const smart_list = [
     title: "Smart Events",
     subtitle:
       "Услуга, которая оптимизирует рекламные кампании по предиктивным событиям",
+    theme: "btn_light",
     url: "events",
-    theme: "",
   },
   {
     title: "Smart Retargeting",
     subtitle:
       "Услуга, которая сортирует пользователей на несколько сегментов и оставляет только тех, кто совершит покупку после просмотра ретаргетированной рекламы",
     link: "/smart",
-    theme: "btn_light",
+    theme: "",
   },
 ];
 const tech_list = [

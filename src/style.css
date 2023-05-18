@@ -44,6 +44,9 @@
   font-weight: 400;
   font-style: normal;
 }
+html {
+  scroll-behavior: smooth;
+}
 section {
   background-color: #e4e4e4;
 }

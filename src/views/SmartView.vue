@@ -1,7 +1,9 @@
 <template>
-  <header class="bg-primary h-[700px]">
+  <header class="bg-primary h-[700px] overflow-hidden relative">
     <div class="container relative h-full flex justify-center items-center">
-      <div class="text-white mb-4">
+      <div class="absolute bg-cover z-0 w-[277px] h-[277px] lg:w-[403px] lg:h-[403px] right-[-160px] md:right-[-225px] top-[0px] md:top-[130px] bg-[url('./assets/img/circles/6.svg')] "></div>
+      <div class="absolute bg-cover z-0 w-[277px] h-[277px] lg:w-[403px] lg:h-[403px] -left-[125px] md:left-[-225px] -bottom-[90px] md:bottom-[30px] bg-[url('./assets/img/circles/6.svg')] "></div>
+      <div class="text-white mb-4 relative">
         <h1 class="text-[50px] sm:text-[75px] lg:text-[100px] mb-5 text-center">Smart<br />Retargeting</h1>
         <div class="flex justify-center mt-20">
           <button class="btn" @click="scrollto('form')">Оставить заявку</button>
@@ -24,13 +26,14 @@
             вероятность.
           </p>
           <img
-            class="max-w-[345px]"
+            class="max-w-[345px]  hidden lg:block"
             src="../assets/img/waves.svg"
             alt="waves"
           />
         </div>
-        <div class="max-w-[450px]">
-          <img class="w-full" src="../assets/img/content5.png" alt="content1" />
+        <div class="max-w-[526px]">
+          <img class="w-full hidden lg:block" src="../assets/img/content5.png" alt="content1" />
+          <img class="w-full lg:hidden" src="../assets/img/content5mob.png" alt="content1" />
         </div>
       </div>
     </div>
