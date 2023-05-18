@@ -5,8 +5,8 @@
         <img src="../assets/img/logo.svg" alt="" />
       </router-link>
       <div class="hidden md:flex items-center gap-x-10">
-        <router-link to="/">Smart Events</router-link>
-        <router-link to="/smart">Smart Retargeting</router-link>
+        <router-link class="" to="/" exact-active-class="active">Smart Events</router-link>
+        <router-link class="" to="/smart" exact-active-class="active">Smart Retargeting</router-link>
       </div>
       <div
         class="nav-toggle block md:hidden"
@@ -38,6 +38,9 @@ watch(() => route.path, () => {
 });
 </script>
 <style>
+.router-link-active{
+  color: #C873FF;
+}
 .nav {
   -webkit-transition: 0.4s ease;
   transition: 0.4s ease;
