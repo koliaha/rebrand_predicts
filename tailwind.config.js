@@ -23,6 +23,7 @@ export default {
       'pink': '#ff49db',
       'orange': '#ff7849',
       'green': '#13ce66',
+      'error': '#F11D00',
       'yellow': '#ffc82c',
       'gray-dark': '#273444',
       'gray': '#A8A8A8',

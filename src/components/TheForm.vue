@@ -27,18 +27,12 @@
               placeholder="Компания*"
               class="inputField max-w-[323px] px-3 py-2 outline-none"
             />
-            <div>
-             
               <Field name="email" v-slot="{ field, value, errorMessage }">
-                  <input type="email" placeholder="Почта*"  v-bind="field" class="inputField max-w-[323px] px-3 py-2 outline-none"/>
-                  <p>{{ errorMessage }}</p>
+                <div class="relative">
+                  <input type="email" placeholder="Почта*"  v-bind="field" class="inputField max-w-[323px] px-3 py-2 outline-none" :class="errorMessage && '!border-error'"/>
+                  <p class="absolute -bottom-4 left-0 text-error text-[10px]">{{ errorMessage }}</p>
+                </div>
                 </Field>
-              <input
-                
-                
-                
-              />
-            </div>
             <div>
               <input
                 id="phone"
@@ -91,7 +85,7 @@ export default {
   setup() {
     // Create a schema
     const schema = yup.object({
-      email: yup.string().required('Please enter an email').email('Please enter a valid email')
+      email: yup.string().required('Пожалуйста введите почту').email('Введите корректную почту')
     })
 
     // Create form context
