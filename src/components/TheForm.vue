@@ -17,33 +17,69 @@
       >
         <form action="" @submit.prevent="onSubmit">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-x-3 gap-y-9">
-            <input
-              type="text"
-              placeholder="Имя*"
-              class="inputField max-w-[323px] px-3 py-2 outline-none"
-            />
-            <input
-              type="text"
-              placeholder="Компания*"
-              class="inputField max-w-[323px] px-3 py-2 outline-none"
-            />
-              <Field name="email" v-slot="{ field, value, errorMessage }">
-                <div class="relative">
-                  <input type="email" placeholder="Почта*"  v-bind="field" class="inputField max-w-[323px] px-3 py-2 outline-none" :class="errorMessage && '!border-error'"/>
-                  <p class="absolute -bottom-4 left-0 text-error text-[10px]">{{ errorMessage }}</p>
-                </div>
-                </Field>
-            <div>
-              <input
-                id="phone"
-                type="tel"
-                placeholder="+7 (___) ___-__-__*"
-                v-mask="'+7 (###) ### ## ##'"
-                v-model="phone"
-                class="inputField max-w-[323px] px-3 py-2 outline-none"
-              />
-              <p v-if="phoneError">{{ phoneError }}</p>
-            </div>
+            <Field name="name" v-slot="{ field, value, errorMessage }">
+              <div class="relative">
+                <input
+                  type="text"
+                  placeholder="Имя*"
+                  v-bind="field"
+                  class="inputField max-w-[323px] px-3 py-2 outline-none"
+                  :class="errorMessage && '!border-error'"
+                  required
+                />
+                <p class="absolute -bottom-4 left-0 text-error text-[10px]">
+                  {{ errorMessage }}
+                </p>
+              </div>
+            </Field>
+            <Field name="companyName" v-slot="{ field, value, errorMessage }">
+              <div class="relative">
+                <input
+                  type="text"
+                  placeholder="Компания*"
+                  v-bind="field"
+                  class="inputField max-w-[323px] px-3 py-2 outline-none"
+                  :class="errorMessage && '!border-error'"
+                  required
+                />
+                <p class="absolute -bottom-4 left-0 text-error text-[10px]">
+                  {{ errorMessage }}
+                </p>
+              </div>
+            </Field>
+
+            <Field name="email" v-slot="{ field, value, errorMessage }">
+              <div class="relative">
+                <input
+                  type="email"
+                  placeholder="Почта*"
+                  v-bind="field"
+                  class="inputField max-w-[323px] px-3 py-2 outline-none"
+                  :class="errorMessage && '!border-error'"
+                  required
+                />
+                <p class="absolute -bottom-4 left-0 text-error text-[10px]">
+                  {{ errorMessage }}
+                </p>
+              </div>
+            </Field>
+            <Field name="phoneNumber" v-slot="{ field, value, errorMessage }">
+              <div class="relative">
+                <input
+                  type="tel"
+                  placeholder="+7 (___) ___-__-__ *"
+                  v-bind="field"
+                  minlength="11"
+                  maxlength="11"
+                  class="inputField max-w-[323px] px-3 py-2 outline-none"
+                  :class="errorMessage && '!border-error'"
+                  required
+                />
+                <p class="absolute -bottom-4 left-0 text-error text-[10px]">
+                  {{ errorMessage }}
+                </p>
+              </div>
+            </Field>
             <input
               type="text"
               placeholder="Услуга"
@@ -70,40 +106,90 @@
             >
           </p>
         </form>
+        <transition name="modal" v-if="showModal">
+          <div class="modal-mask">
+            <div class="modal-wrapper">
+              <div class="modal-container">
+                <div class="text-center text-[28px]">
+                  Заявка успешно<br />отправлена
+                </div>
+                <button
+                  class="modal-default-button absolute right-8 top-8"
+                  @click="showModal = false"
+                >
+                  <svg
+                    width="26"
+                    height="26"
+                    viewBox="0 0 26 26"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M1 1L25 25" stroke="black" />
+                    <path d="M1 25L25 0.999998" stroke="black" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </transition>
       </div>
     </div>
   </section>
 </template>
-<script >
-import { Field, useForm } from 'vee-validate'
-import * as yup from 'yup'
+<script>
+import { ref } from "vue";
+import { Field, useForm } from "vee-validate";
+import * as yup from "yup";
 
 export default {
   components: {
     Field,
   },
   setup() {
+    const showModal = ref(false);
     // Create a schema
     const schema = yup.object({
-      email: yup.string().required('Пожалуйста введите почту').email('Введите корректную почту')
-    })
-
-    // Create form context
+      email: yup
+        .string()
+        .required("Пожалуйста введите почту")
+        .email("Введите корректную почту"),
+      companyName: yup
+        .string()
+        .required("Пожалуйста введите название компании"),
+      name: yup
+        .string()
+        .required("Пожалуйста введите имя")
+        .matches(
+          /^[a-zA-Zа-яА-Я\s]*$/,
+          "Имя может содержать только буквы и пробелы"
+        ),
+      phoneNumber: yup
+        .string()
+        .required("Пожалуйста введите номер телефона")
+        .length(11, "Например: 89999999999")
+        .matches(/^\d+$/, "Номер телефона должен содержать только цифры"),
+    });
     const form = useForm({
-      validationSchema: schema
-    })
-
-    // Submit handler
-    const onSubmit = form.handleSubmit(values => {
-      console.log('Form has been submitted!', values)
-    })
+      validationSchema: schema,
+      initialValues: {
+        email: "",
+        name: "",
+        companyName: "",
+        phoneNumber: "",
+      },
+    });
+    const onSubmit = form.handleSubmit((values) => {
+      showModal.value = true
+      console.log("Form has been submitted!", values);
+    });
 
     return {
       onSubmit,
-      ...form
-    }
-  }
-}
+      form,
+      showModal,
+    };
+  },
+};
 </script>
 <style lang="scss">
 .inputField {
@@ -113,5 +199,56 @@ export default {
   &:focus {
     border: 1px solid #262626;
   }
+}
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  transition: opacity 0.3s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.modal-container {
+  position: relative;
+  max-width: 570px;
+  height: 325px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: linear-gradient(270deg, #c873ff -122.45%, #ffffff 72.33%);
+  border: 1px solid #262626;
+  text-align: center;
+  margin: 0px auto;
+  padding: 20px 30px;
+  transition: all 0.3s ease;
+}
+@media screen and (max-width:600px) {
+  .modal-container {
+    max-width: 80%;
+  }
+}
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 </style>
