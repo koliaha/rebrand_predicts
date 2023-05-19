@@ -61,21 +61,21 @@ a {
 a:hover {
   opacity: 0.7;
 }
-li{
+li {
   position: relative;
 }
-li::before{
+li::before {
   position: absolute;
-  content:'';
+  content: "";
   width: 3px;
   height: 3px;
   top: 10px;
   left: -10px;
-  border-radius:50%;
-  background:black;
+  border-radius: 50%;
+  background: black;
 }
-li.dark::before{
-  background:white;
+li.dark::before {
+  background: white;
 }
 .btn {
   color: white;
@@ -95,14 +95,24 @@ li.dark::before{
   color: black;
   background: linear-gradient(270deg, #c873ff -122.45%, #ffffff 72.33%);
 }
+.btn:disabled {
+  background: #e4e4e4;
+  border: none;
+  cursor: default;
+}
 .btn:hover {
   background: #c873ff;
   color: black;
 }
+.btn:hover:disabled {
+  background: #e4e4e4;
+  color: white;
+  border: none;
+}
 .bg-gradient {
   background: linear-gradient(270deg, #c873ff -122.45%, #ffffff 72.33%);
 }
-@media screen and (max-width:600px) {
+@media screen and (max-width: 600px) {
   .btn {
     height: 54px;
     line-height: 54px;

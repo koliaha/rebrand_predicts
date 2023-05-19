@@ -25,7 +25,6 @@
                   v-bind="field"
                   class="inputField max-w-[323px] px-3 py-2 outline-none"
                   :class="errorMessage && '!border-error'"
-                  required
                 />
                 <p class="absolute -bottom-4 left-0 text-error text-[10px]">
                   {{ errorMessage }}
@@ -40,7 +39,6 @@
                   v-bind="field"
                   class="inputField max-w-[323px] px-3 py-2 outline-none"
                   :class="errorMessage && '!border-error'"
-                  required
                 />
                 <p class="absolute -bottom-4 left-0 text-error text-[10px]">
                   {{ errorMessage }}
@@ -56,7 +54,6 @@
                   v-bind="field"
                   class="inputField max-w-[323px] px-3 py-2 outline-none"
                   :class="errorMessage && '!border-error'"
-                  required
                 />
                 <p class="absolute -bottom-4 left-0 text-error text-[10px]">
                   {{ errorMessage }}
@@ -73,21 +70,32 @@
                   maxlength="11"
                   class="inputField max-w-[323px] px-3 py-2 outline-none"
                   :class="errorMessage && '!border-error'"
-                  required
                 />
                 <p class="absolute -bottom-4 left-0 text-error text-[10px]">
                   {{ errorMessage }}
                 </p>
               </div>
             </Field>
-            <input
-              type="text"
-              placeholder="Услуга"
-              class="inputField max-w-[323px] px-3 py-2 outline-none"
-            />
+            <Field name="services" v-slot="{ field, value, errorMessage }">
+              <div class="relative">
+                <input
+                  type="tel"
+                  placeholder="Услуга"
+                  v-bind="field"
+                  class="inputField max-w-[323px] px-3 py-2 outline-none"
+                  :class="errorMessage && '!border-error'"
+                />
+                <p class="absolute -bottom-4 left-0 text-error text-[10px]">
+                  {{ errorMessage }}
+                </p>
+              </div>
+            </Field>
           </div>
           <div class="flex justify-center mt-16">
-            <button class="btn" type="submit">Оставить заявку</button>
+            <button class="btn" type="submit" :disabled="isLoading">
+              <span v-if="isLoading">Подождите</span>
+              <span v-else>Оставить заявку</span>
+            </button>
           </div>
           <p class="text-center mt-10 max-w-[630px] text-sm mx-auto">
             Нажимая кнопку «Оставить заявку», вы даёте свое
@@ -140,7 +148,7 @@
 import { ref } from "vue";
 import { Field, useForm } from "vee-validate";
 import * as yup from "yup";
-
+import axios from "axios";
 export default {
   components: {
     Field,
@@ -148,6 +156,7 @@ export default {
   setup() {
     const showModal = ref(false);
     // Create a schema
+    const isLoading = ref(false);
     const schema = yup.object({
       email: yup
         .string()
@@ -168,6 +177,7 @@ export default {
         .required("Пожалуйста введите номер телефона")
         .length(11, "Например: 89999999999")
         .matches(/^\d+$/, "Номер телефона должен содержать только цифры"),
+      services: yup.string(),
     });
     const form = useForm({
       validationSchema: schema,
@@ -176,69 +186,48 @@ export default {
         name: "",
         companyName: "",
         phoneNumber: "",
+        services: "",
       },
     });
     const onSubmit = form.handleSubmit((values) => {
-      showModal.value = true
       console.log("Form has been submitted!", values);
+      isLoading.value = true;
+      const headers = {
+        accept: "application/json",
+        "Content-Type": "application/json",
+      };
+      try {
+        axios
+          .post(
+            "https://form.api.gotechnology.io/api/v1/record/9f443561-be92-4182-b106-ce5626cbb092",
+            JSON.stringify(
+              {
+                payload: values,
+                is_test: false,
+              },
+              headers
+            )
+          )
+          .then((response) => {
+            if (response.status != 400) {
+              showModal.value = true;
+              setTimeout(() => {
+                showModal.value = false;
+              }, 1500);
+            }
+          });
+      } catch (error) {
+        console.log(error);
+      } finally {
+        isLoading.value = false;
+      }
     });
-const   someAction =()=> {
-            if (
-                !(
-                    this.isEmailValid &&
-                    this.isPhonelValid &&
-                    this.isNameValid &&
-                    this.isCompanyValid
-                )
-            ) {
-                this.isEmailTouched = true
 
-                this.isNameTouched = true
-
-                this.isPhoneTouched = true
-
-                this.isCompanyTouched = true
-
-                // this.isUslugaTouched = true
-                return
-            }
-
-            const headers = {
-                accept: 'application/json',
-                'Content-Type': 'application/json'
-            }
-
-            axios
-                .post(
-                    'https://form.api.gotechnology.io/api/v1/record/e19c16ba-ca59-473d-bb6a-b2eca0470c8a',
-                    JSON.stringify(
-                        {
-                            payload: {
-                                email: this.email,
-                                name: this.name,
-                                phone: this.phone,
-                                company: this.company,
-                                usluga: this.usluga
-                            },
-                            is_test: false
-                        },
-                        headers
-                    )
-                )
-                .then((response) => {
-                    if (response.status != 400) {
-                        this.showModal()
-
-                        setTimeout(() => {
-                            this.closeModal()
-                        }, 1000)
-                    }
-                })
-        },
     return {
       onSubmit,
       form,
       showModal,
+      isLoading,
     };
   },
 };
@@ -285,7 +274,7 @@ const   someAction =()=> {
   padding: 20px 30px;
   transition: all 0.3s ease;
 }
-@media screen and (max-width:600px) {
+@media screen and (max-width: 600px) {
   .modal-container {
     max-width: 80%;
   }
