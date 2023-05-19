@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "add": "^2.0.6",
+    "axios": "^1.4.0",
     "swiper": "^9.3.1",
     "v-mask": "^2.3.0",
     "vee-validate": "^4.5.8",

@@ -182,7 +182,59 @@ export default {
       showModal.value = true
       console.log("Form has been submitted!", values);
     });
+const   someAction =()=> {
+            if (
+                !(
+                    this.isEmailValid &&
+                    this.isPhonelValid &&
+                    this.isNameValid &&
+                    this.isCompanyValid
+                )
+            ) {
+                this.isEmailTouched = true
 
+                this.isNameTouched = true
+
+                this.isPhoneTouched = true
+
+                this.isCompanyTouched = true
+
+                // this.isUslugaTouched = true
+                return
+            }
+
+            const headers = {
+                accept: 'application/json',
+                'Content-Type': 'application/json'
+            }
+
+            axios
+                .post(
+                    'https://form.api.gotechnology.io/api/v1/record/e19c16ba-ca59-473d-bb6a-b2eca0470c8a',
+                    JSON.stringify(
+                        {
+                            payload: {
+                                email: this.email,
+                                name: this.name,
+                                phone: this.phone,
+                                company: this.company,
+                                usluga: this.usluga
+                            },
+                            is_test: false
+                        },
+                        headers
+                    )
+                )
+                .then((response) => {
+                    if (response.status != 400) {
+                        this.showModal()
+
+                        setTimeout(() => {
+                            this.closeModal()
+                        }, 1000)
+                    }
+                })
+        },
     return {
       onSubmit,
       form,
