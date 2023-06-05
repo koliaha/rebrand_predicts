@@ -1,5 +1,5 @@
 <template>
-  <section class="py-16 lg:py-24 overflow-hidden relative" id="form">
+  <section class="py-8 lg:py-24 overflow-hidden relative" id="form">
     <div class="container">
       <div
         class="absolute bg-cover z-0 w-[327px] h-[327px] lg:w-[427px] lg:h-[427px] -right-[100px] top-[130px] bg-[url('./assets/img/circles/1.svg')] hidden md:block"
@@ -8,22 +8,22 @@
         class="absolute bg-cover z-0 w-[193px] h-[193px] -left-[100px] bottom-[100px] bg-[url('./assets/img/circles/2.svg')] hidden md:block"
       ></div>
       <h2
-        class="text-center text-[30px] leading-[39px] md:text-[40px] md:leading-[49px] relative"
+        class="text-center text-[27px]  leading-[39px] md:text-[40px] md:leading-[49px] relative"
       >
         Оставьте заявку и мы свяжемся с вами
       </h2>
       <div
-        class="mt-10 bg-white border py-10 px-10 mx-5 md:mx-0 md:px-20 relative"
+        class="mt-10 bg-white border py-5 md:py-10 px-5 md:mx-0 md:px-20 relative"
       >
         <form action="" @submit.prevent="onSubmit">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-x-3 gap-y-9">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-x-3 gap-y-5 md:gap-y-9">
             <Field name="name" v-slot="{ field, value, errorMessage }">
               <div class="relative">
                 <input
                   type="text"
                   placeholder="Имя*"
                   v-bind="field"
-                  class="inputField max-w-[323px] px-3 py-2 outline-none"
+                  class="inputField  px-3 py-2 outline-none"
                   :class="errorMessage && '!border-error'"
                 />
                 <p class="absolute -bottom-4 left-0 text-error text-[10px]">
@@ -37,7 +37,7 @@
                   type="text"
                   placeholder="Компания*"
                   v-bind="field"
-                  class="inputField max-w-[323px] px-3 py-2 outline-none"
+                  class="inputField  px-3 py-2 outline-none"
                   :class="errorMessage && '!border-error'"
                 />
                 <p class="absolute -bottom-4 left-0 text-error text-[10px]">
@@ -52,7 +52,7 @@
                   type="email"
                   placeholder="Почта*"
                   v-bind="field"
-                  class="inputField max-w-[323px] px-3 py-2 outline-none"
+                  class="inputField  px-3 py-2 outline-none"
                   :class="errorMessage && '!border-error'"
                 />
                 <p class="absolute -bottom-4 left-0 text-error text-[10px]">
@@ -68,7 +68,7 @@
                   v-bind="field"
                   minlength="11"
                   maxlength="11"
-                  class="inputField max-w-[323px] px-3 py-2 outline-none"
+                  class="inputField  px-3 py-2 outline-none"
                   :class="errorMessage && '!border-error'"
                 />
                 <p class="absolute -bottom-4 left-0 text-error text-[10px]">
@@ -79,10 +79,10 @@
             <Field name="services" v-slot="{ field, value, errorMessage }">
               <div class="relative">
                 <input
-                  type="tel"
+                  type="text"
                   placeholder="Услуга"
                   v-bind="field"
-                  class="inputField max-w-[323px] px-3 py-2 outline-none"
+                  class="inputField  px-3 py-2 outline-none"
                   :class="errorMessage && '!border-error'"
                 />
                 <p class="absolute -bottom-4 left-0 text-error text-[10px]">
@@ -91,13 +91,13 @@
               </div>
             </Field>
           </div>
-          <div class="flex justify-center mt-16">
+          <div class="flex justify-center mt-6 md:mt-16">
             <button class="btn" type="submit" :disabled="isLoading">
               <span v-if="isLoading">Подождите</span>
               <span v-else>Оставить заявку</span>
             </button>
           </div>
-          <p class="text-center mt-10 max-w-[630px] text-sm mx-auto">
+          <p class="text-center mt-5 md:mt-10 max-w-[630px] text-xs md:text-sm mx-auto">
             Нажимая кнопку «Оставить заявку», вы даёте свое
             <a
               href="https://gomobile.ru/promo/presentations/Soglasie_na_obrabotku_personalnyh_dannyh_gopredicts.io.pdf"
@@ -107,7 +107,7 @@
             >
             и соглашаетесь с
             <a
-              href="https://gomobile.ru/uploads/origin/files/1/politika_obrabotki_personalnyh_dannyh.pdf"
+              href="https://static.gomobile.ru/politika_obrabotki_personalnyh_dannyh.pdf"
               target="_blank"
               class="text-purple"
               >политикой обработки персональных данных</a

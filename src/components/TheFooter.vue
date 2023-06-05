@@ -1,22 +1,22 @@
 <template>
   <section class="footer bg-primary">
     <div class="container">
-      <div class="py-[87px] text-white text-center">
+      <div class="py-[47px] md:py-[87px] text-white text-center">
         <div class="flex justify-center items-center gap-x-5">
           <a
             :href="item.url"
-            class="bg-social w-[56px] h-[56px] border border-white rounded-full flex items-center justify-center"
+            class="bg-social w-[30px] h-[30px] sm:w-[56px] sm:h-[56px] border border-white rounded-full flex items-center justify-center"
             v-for="(item, index) in social_list"
             :key="index"
           >
             <img
-              class="content-center"
+              class="content-center w-[60%]"
               :src="imageUrl(item.icon)"
               :alt="item.icon"
             />
           </a>
         </div>
-        <div class="mt-10">
+        <div class="mt-4 md:mt-10">
           <a href="mailto:hi@gomobile.ru" class="social-link"
             ><span itemprop="email">hi@gomobile.ru</span></a
           >
@@ -28,17 +28,17 @@
             <span itemprop="streetAddress">Садовническая набережная, 9</span></a
           >
         </div>
-        <div class="flex justify-center mt-10">
+        <div class="flex justify-center mt-5 md:mt-10">
           <a href="">
             <img src="../assets/img/logo.svg" alt="" />
           </a>
         </div>
-        <p class="mt-10">
+        <p class="mt-5 md:mt-10">
           Подробнее о других услугах
           <a target="_blank" href="https://goahead.ai/" class="text-purple">Go Ahead</a>
         </p>
-        <p class="mt-10 leading-4">
-          <a href="https://gomobile.ru/uploads/origin/files/1/politika_obrabotki_personalnyh_dannyh.pdf" target="_blank" class="text-sm text-gray"
+        <p class="mt-5 md:mt-10 text-xs md:text-sm leading-4">
+          <a href="https://static.gomobile.ru/politika_obrabotki_personalnyh_dannyh.pdf" target="_blank" class="text-sm text-gray"
             >Политика обработки персональных данных <br />
             (Политика конфиденциальности)</a
           >

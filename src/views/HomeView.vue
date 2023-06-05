@@ -6,7 +6,9 @@
       <div
         class="text-white mb-4 mt-10 md:mt-0 px-5 md:px-0 text-center md:text-start"
       >
-        <h1 class="text-[48px] md:text-[68px] lg:text-[100px] mb-5">Go Predicts</h1>
+        <h1 class="text-[48px] md:text-[68px] lg:text-[100px] mb-5">
+          Go Predicts
+        </h1>
         <p class="text-lg md:text-2xl mb-[50px] max-w-[453px]">
           Это услуга привлечения трафика с оптимизацией на предиктивные события
         </p>
@@ -36,8 +38,21 @@
             <p>{{ item.subtitle }}</p>
           </div>
           <div class="flex mt-7">
-            <button v-if="item.url" @click="scrollto(item.url)" class="btn" :class="item.theme">Подробнее</button>
-            <router-link v-if="item.link"  :to="item.link" class="btn" :class="item.theme">Подробнее</router-link>
+            <button
+              v-if="item.url"
+              @click="scrollto(item.url)"
+              class="btn"
+              :class="item.theme"
+            >
+              Подробнее
+            </button>
+            <router-link
+              v-if="item.link"
+              :to="item.link"
+              class="btn"
+              :class="item.theme"
+              >Подробнее</router-link
+            >
           </div>
         </div>
       </div>
@@ -85,7 +100,9 @@
         <div
           class="w-full lg:w-1/2 bg-primary text-white p-[56px] xl:p-[100px] pl-0 relative"
         >
-          <h2 class="text-[27px] lg:text-[40px] leading-[29px] lg:leading-[49px] mb-5">
+          <h2
+            class="text-[27px] lg:text-[40px] leading-[29px] lg:leading-[49px] mb-5"
+          >
             Решение: pLTV — это оптимизация на предиктивные события
           </h2>
           <p class="mb-10">
@@ -94,19 +111,17 @@
             покупку
           </p>
           <div
-            class="h-full w-full bg-primary absolute -left-[100%] top-0  lg:block"
-          >
-          
-          </div>
-          <div
-            class="h-full w-full bg-primary absolute -right-[100%] top-0  lg:hidden"
+            class="h-full w-full bg-primary absolute -left-[100%] top-0 lg:block"
           ></div>
-          <div class="absolute w-[720px]  bottom-0 right-0 hidden lg:block">
+          <div
+            class="h-full w-full bg-primary absolute -right-[100%] top-0 lg:hidden"
+          ></div>
+          <div class="absolute w-[720px] bottom-0 right-0 hidden lg:block">
             <img
-            class="absolute h-[175px] bottom-0 right-0"
-            src="../assets/img/bg2.svg"
-            alt="waves"
-          />
+              class="absolute h-[175px] bottom-0 right-0"
+              src="../assets/img/bg2.svg"
+              alt="waves"
+            />
           </div>
           <img
             class="absolute h-full bottom-0 -right-10 hidden md:block lg:hidden"
@@ -140,10 +155,14 @@
   </section>
   <section class="py-16 lg:py-24 overflow-hidden overflow-hidden relative">
     <div class="container">
-      <div class="absolute bg-cover z-0 w-[361px] h-[361px] -right-[20px] top-[80px] bg-[url('./assets/img/circles/1.svg')] hidden md:block"></div>
-      <div class="absolute bg-cover z-0 w-[322px] h-[322px] -left-[100px] bottom-[100px] bg-[url('./assets/img/circles/5.svg')] hidden md:block"></div>
+      <div
+        class="absolute bg-cover z-0 w-[361px] h-[361px] -right-[20px] top-[80px] bg-[url('./assets/img/circles/1.svg')] hidden md:block"
+      ></div>
+      <div
+        class="absolute bg-cover z-0 w-[322px] h-[322px] -left-[100px] bottom-[100px] bg-[url('./assets/img/circles/5.svg')] hidden md:block"
+      ></div>
       <h2
-        class="text-center text-[27px] md:text-[40px] leading-[29px] md:leading-[49px] relative"
+        class="text-center text-[24px] md:text-[40px] leading-[26px] md:leading-[49px] relative"
       >
         Технология Go Predicts органично встраивается в любую маркетинговую
         стратегию
@@ -164,21 +183,22 @@
           <p class="">{{ item.text }}</p>
         </div>
       </div>
-      <div class="relative pb-4  block lg:hidden">
+      <div class="relative pb-4 block lg:hidden">
         <swiper
           :slides-per-view="1"
           :space-between="20"
-          class="mt-10"
-          :centered-slide="true"
+          class="mt-7 md:mt-20 !overflow-hidden"
+          :centered-slides="true"
           :navigation="{
             prevEl: '.slidePrev-btn',
             nextEl: '.slideNext-btn',
           }"
           :breakpoints="{
-            320: {
-              slidesPerView: 1.5,
+            220: {
+              slidesPerView: 1,
+              spaceBetween: 20,
             },
-            752: {
+            762: {
               slidesPerView: 2.5,
             },
           }"
@@ -187,7 +207,7 @@
           <swiper-slide
             v-for="(item, index) in tech_list"
             :key="index"
-            class="w-[285px] min-h-[278px] bg-white border border-black py-3 px-7"
+            class="min-h-[222px] bg-white border border-black py-3 px-7"
           >
             <div class="mx-auto w-[80px] h-[80px] flex items-center">
               <img
@@ -250,9 +270,11 @@
       </div>
     </div>
   </section>
-  <section class="py-16 lg:py-24">
+  <section class="py-12 lg:py-24">
     <div class="container">
-      <h2 class="text-center text-[40px] leading-[49px]">
+      <h2
+        class="text-center text-[27px] md:text-[40px] leading-[29px] md:leading-[49px] relative"
+      >
         Возможности системы
       </h2>
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-10">
@@ -262,7 +284,7 @@
           class="flex items-start gap-x-4 w-full lg:max-w-[350px]"
         >
           <img
-            class="w-[55px]"
+            class="w-[35px] md:w-[55px]"
             :src="imageUrl('count', item.count)"
             :alt="item.count"
           />
@@ -276,10 +298,20 @@
   </section>
   <section class="py-16 lg:py-24 bg-primary">
     <div class="container text-white">
-      <h2 class="text-center text-[40px] leading-[49px]">Self-service</h2>
+      <h2
+        class="text-center text-[27px] md:text-[40px] leading-[29px] md:leading-[49px] relative"
+      >
+        Self-service
+      </h2>
       <div class="flex justify-center flex-col lg:flex-row gap-3 mt-8 lg:mt-20">
         <div class="lg:max-w-[487px]">
-          <img src="../assets/img/self/1.png" alt="" />
+          <div class="bg-black p-3 rounded-[10px]">
+            <img
+              class="rounded-[7px]"
+              src="../assets/img/self/1.gif"
+              alt="self"
+            />
+          </div>
           <div class="h-[146px] items-center justify-center hidden lg:flex">
             <img src="../assets/img/self/waves.svg" alt="" />
           </div>
@@ -288,44 +320,60 @@
           <div class="h-[146px] items-center justify-center hidden lg:flex">
             <img src="../assets/img/self/waves.svg" alt="" />
           </div>
-          <img src="../assets/img/self/2.png" alt="" />
+          <div class="bg-black p-3 rounded-[10px]">
+            <img
+              class="rounded-[7px]"
+              src="../assets/img/self/2.gif"
+              alt="self"
+            />
+          </div>
         </div>
       </div>
     </div>
   </section>
   <section class="py-16 lg:py-24 overflow-hidden select-none relative">
     <div class="container">
-      <div class="absolute bg-cover z-0 lg:w-[346px] w-[246px] lg:h-[346px] h-[246px] -left-[20px] top-[350px] bg-[url('./assets/img/circles/1.svg')] hidden md:block"></div>
+      <div
+        class="absolute bg-cover z-0 lg:w-[346px] w-[246px] lg:h-[346px] h-[246px] -left-[20px] top-[350px] bg-[url('./assets/img/circles/1.svg')] hidden md:block"
+      ></div>
       <div class="mb-20">
-        <h2 class="text-center text-[40px] leading-[49px] relative">Кейс</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 mt-10 border border-black relative">
-        <div
-          class="bg-primary text-white py-[20px] lg:py-[60px] px-[30px] lg:px-[100px]"
+        <h2
+          class="text-center text-[27px] md:text-[40px] leading-[29px] md:leading-[49px] relative"
         >
-          <h2 class="mb-[7px] font-normal text-[28px]">
-            Domino’s Pizza<br />& Go Predicts
-          </h2>
-          <p class="mt-4 mb-8">
-            Благодаря оптимизации кампании по Smart Events в Google и Facebook*
-            снизили показатели CPO и ДРР. За период с октября 2021 по февраль
-            2022 увеличили бюджет предиктивных кампаний в 4 раза.
-          </p>
-          <p class="text-[10px]">*соцсеть признана экстремистской в РФ</p>
-        </div>
-        <div class="bg-white py-[20px] lg:py-[60px] px-[30px] lg:px-[100px]">
-          <h2 class="mb-[7px] text-[28px]">Задачи</h2>
-          <ul class="pl-6 mt-3">
-            <li class="mb-2">
-              Привлечь эффективный трафик в приложение клиента
-            </li>
-            <li class="mb-2">Снизить показатель ДРР</li>
-            <li class="mb-2">Оптимизировать СРА за совершенный заказ</li>
-            <li class="mb-2">Увеличить LTV привлекаемых пользователей</li>
-          </ul>
+          Кейс
+        </h2>
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 mt-10 border border-black relative"
+        >
+          <div
+            class="bg-primary text-white py-[20px] lg:py-[60px] px-[30px] lg:px-[100px]"
+          >
+            <h2 class="mb-[7px] font-normal text-[28px]">
+              Domino’s Pizza<br />& Go Predicts
+            </h2>
+            <p class="mt-4 mb-8">
+              Благодаря оптимизации кампании по Smart Events в Google и
+              Facebook* снизили показатели CPO и ДРР. За период с октября 2021
+              по февраль 2022 увеличили бюджет предиктивных кампаний в 4 раза.
+            </p>
+            <p class="text-[10px]">*соцсеть признана экстремистской в РФ</p>
+          </div>
+          <div class="bg-white py-[20px] lg:py-[60px] px-[30px] lg:px-[100px]">
+            <h2 class="mb-[7px] text-[28px]">Задачи</h2>
+            <ul class="pl-6 mt-3">
+              <li class="mb-2">
+                Привлечь эффективный трафик в приложение клиента
+              </li>
+              <li class="mb-2">Снизить показатель ДРР</li>
+              <li class="mb-2">Оптимизировать СРА за совершенный заказ</li>
+              <li class="mb-2">Увеличить LTV привлекаемых пользователей</li>
+            </ul>
+          </div>
         </div>
       </div>
-      </div>
-      <div class="absolute bg-cover z-0 w-[458px] h-[458px] -right-[100px] -bottom-[200px] bg-[url('./assets/img/circles/5.svg')] hidden md:block"></div>
+      <div
+        class="absolute bg-cover z-0 w-[458px] h-[458px] -right-[100px] -bottom-[200px] bg-[url('./assets/img/circles/5.svg')] hidden md:block"
+      ></div>
       <h3 class="text-center text-[28px] leading-[34px]">Что делали</h3>
       <div class="swiper-custom relative">
         <swiper
@@ -337,9 +385,9 @@
             nextEl: '.slideNext-btn',
           }"
           :breakpoints="{
-            320: {
+            220: {
               slidesPerView: 1.2,
-              centeredSlides: true,
+              autoHeight: true,
             },
             800: {
               slidesPerView: 2.5,
@@ -353,7 +401,7 @@
           <swiper-slide
             v-for="(item, index) in slide_list"
             :key="index"
-            class=" select-none w-[387px] min-h-[381px] bg-white border border-primary"
+            class="select-none w-[387px] min-h-[381px] bg-white border border-primary"
           >
             <div class="bg-primary h-[205px] flex items-center justify-center">
               <img
@@ -363,7 +411,7 @@
               />
             </div>
             <div
-              class="flex items-start flex-col sm:flex-row gap-x-4 max-w-[350px] px-5 py-7"
+              class="flex items-start flex-col sm:flex-row gap-x-4 px-5 py-7"
             >
               <img
                 class="w-[35px] sm:w-[55px] mb-2"
@@ -371,7 +419,7 @@
                 :alt="item.count"
               />
               <div>
-                <p class="">{{ item.text }}</p>
+                <p class="text-sm md:text-lg leading-[15px] !md:leading-[22px]">{{ item.text }}</p>
               </div>
             </div>
           </swiper-slide>
@@ -479,7 +527,11 @@
     <div class="container text-white">
       <div class="flex justify-between items-center lg:flex-row flex-col">
         <div class="lg:max-w-[387px] mb-9 lg:mb-0">
-          <h2 class="text-[40px] leading-[49px] mb-5">Тарифы</h2>
+          <h2
+            class="text-center text-[27px] md:text-[40px] leading-[29px] md:leading-[49px] relative mb-5"
+          >
+            Тарифы
+          </h2>
           <p class="mb-10">
             Тариф зависит от количества предиктивных событий и приложений и
             может меняться в зависимости от целей.
@@ -489,7 +541,9 @@
             рассчитать стоимость индивидуально.
           </p>
           <div class="flex">
-            <button class="btn btn_light" @click="scrollto('form')">Оставить заявку</button>
+            <button class="btn btn_light" @click="scrollto('form')">
+              Оставить заявку
+            </button>
           </div>
         </div>
         <div class="lg:max-w-[690px] w-full relative">
@@ -498,8 +552,16 @@
             src="../assets/img/bg3.svg"
             alt="content1"
           />
-          <img class="w-full hidden md:block" src="../assets/img/content4.svg" alt="content1" />
-          <img class="w-full block md:hidden" src="../assets/img/content4mob.svg" alt="content1" />
+          <img
+            class="w-full hidden md:block"
+            src="../assets/img/content4.svg"
+            alt="content1"
+          />
+          <img
+            class="w-full block md:hidden"
+            src="../assets/img/content4mob.svg"
+            alt="content1"
+          />
           <img
             class="absolute -bottom-16 left-0 hidden lg:block"
             src="../assets/img/bg3.svg"
@@ -510,11 +572,15 @@
     </div>
   </section>
   <section class="py-16 lg:py-24 overflow-hidden relative">
-    <div class="container ">
-      <div class="absolute bg-cover z-0 w-[168px] h-[168px]  right-[60px] bottom-[130px] bg-[url('./assets/img/circles/3.svg')]"></div>
-      <div class="absolute bg-cover z-0 w-[318px] h-[318px] -left-[100px] top-[100px] bg-[url('./assets/img/circles/4.svg')]"></div>
+    <div class="container">
+      <div
+        class="absolute bg-cover z-0 w-[168px] h-[168px] right-[60px] bottom-[130px] bg-[url('./assets/img/circles/3.svg')] hidden md:block"
+      ></div>
+      <div
+        class="absolute bg-cover z-0 w-[318px] h-[318px] -left-[100px] top-[100px] bg-[url('./assets/img/circles/4.svg')] hidden md:block"
+      ></div>
       <h2
-        class="text-center text-[27px] md:text-[40px] leading-[29px] md:leading-[49px] relative"
+        class="text-center text-[27px] md:text-[40px] leading-[29px] md:leading-[49px] relative "
       >
         Go Predicts подходит для любых компаний, которые отвечают следующим
         критериям
@@ -677,9 +743,9 @@ const slide_list = [
 ];
 
 function scrollto(id) {
-      const el = document.getElementById(id);
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+  const el = document.getElementById(id);
+  el.scrollIntoView({ behavior: "smooth" });
+}
 </script>
 <style lang="scss">
 .btnSlide {
@@ -710,19 +776,27 @@ function scrollto(id) {
   right: -60px;
   padding-right: 5px;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1072px) {
   .btnSlide {
     bottom: -15%;
     top: auto;
   }
   .btnSlide-prev {
+    left: 40%;
+  }
+  .btnSlide-next {
+    right: 40%;
+  }
+  .swiper {
+    overflow: visible !important;
+  }
+}
+@media screen and (max-width: 652px) {
+  .btnSlide-prev {
     left: 35%;
   }
   .btnSlide-next {
     right: 35%;
-  }
-  .swiper {
-    overflow: visible !important;
   }
 }
 </style>

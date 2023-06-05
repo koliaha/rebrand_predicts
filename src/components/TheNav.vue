@@ -1,12 +1,22 @@
 <template>
   <div class="bg-primary text-white py-5 w-full">
     <div class="container flex justify-between px-5 md:px-0 relative">
-      <router-link to="/">
+      <router-link to="/" class="ml-2">
         <img src="../assets/img/logo.svg" alt="" />
       </router-link>
       <div class="hidden lg:flex items-center gap-x-10">
-        <router-link class="" to="/#events" exact-active-class="active">Smart Events</router-link>
-        <router-link class="" to="/smart" exact-active-class="active">Smart Retargeting</router-link>
+        <router-link
+          class="hover:text-purple"
+          to="/#events"
+          exact-active-class="active"
+          >Smart Events</router-link
+        >
+        <router-link
+          class="hover:text-purple"
+          to="/smart"
+          exact-active-class="active"
+          >Smart Retargeting</router-link
+        >
       </div>
       <div
         class="nav-toggle block lg:hidden"
@@ -17,33 +27,62 @@
         <div class="nav-toggle-bar"></div>
       </div>
     </div>
-    <nav class="nav dropdown-list block lg:hidden"  :class="{ expanded: navOpen }">
+    <nav
+      class="nav dropdown-list block lg:hidden"
+      :class="{ expanded: navOpen }"
+    >
       <div class="nav-wrapper">
         <div class="burger-list">
-          <router-link class="" to="/#events" exact-active-class="active">Smart Events</router-link>
-        <router-link class="" to="/smart" exact-active-class="active">Smart Retargeting</router-link>
+          <router-link class="" to="/#events" exact-active-class="active"
+            >Smart Events</router-link
+          >
+          <router-link class="" to="/smart" exact-active-class="active"
+            >Smart Retargeting</router-link
+          >
         </div>
       </div>
     </nav>
+    <div class="bg-nav" v-if="navOpen" @click="navOpen = false"></div>
   </div>
 </template>
 <script setup>
-import { ref,watch } from "vue";
+import { ref, watch, onBeforeUnmount, onMounted } from "vue";
 import { useRoute } from "vue-router";
 const route = useRoute();
 const navOpen = ref(false);
 
-watch(() => route.path, () => {
-  navOpen.value = false;
-});
+watch(
+  () => route.path,
+  () => {
+    navOpen.value = false;
+  }
+);
 function scrollto(id) {
-      const el = document.getElementById(id);
-      el.scrollIntoView({ behavior: "smooth" });
-    }
+  const el = document.getElementById(id);
+  el.scrollIntoView({ behavior: "smooth" });
+}
+
+function logScroll() {
+  if (navOpen) navOpen.value = false;
+}
+
+onMounted(() => {
+  window.addEventListener("scroll", logScroll);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("scroll", logScroll);
+});
 </script>
 <style>
-.router-link-active{
-  color: #C873FF;
+.bg-nav {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .nav {
   -webkit-transition: 0.4s ease;
@@ -53,7 +92,7 @@ function scrollto(id) {
   /* right: 0;
   top: 0; */
   right: -100%;
-  top:  -100%;
+  top: -100%;
   position: fixed;
   padding: 20px;
   width: 250px;
